@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { frontendFolderData, frontendCategories } from "../data";
@@ -8,13 +7,14 @@ import { frontendFolderData, frontendCategories } from "../data";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 //@ts-ignore
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { useQueryState } from "nuqs";
 
 interface FrontendFolderProps {
     getCategoryColor?: (category: string) => string;
 }
 
 const FrontendFolder = ({ getCategoryColor }: FrontendFolderProps) => {
-    const [selectedFolder, setSelectedFolder] = useState("app");
+    const [selectedFolder, setSelectedFolder] = useQueryState("frontend", { defaultValue: "app" });
 
     const handleFolderClick = (folderKey: string) => {
         setSelectedFolder(folderKey);
