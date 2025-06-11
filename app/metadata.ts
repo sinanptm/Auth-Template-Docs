@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     title: "Full-Stack Auth Template | Complete Authentication System",
     description: "Production-ready authentication template with Next.js 15 & Express. Features email/password login, OAuth, OTP verification, JWT, RBAC, and clean architecture.",
     type: "website",
+    url: "https://full-stack-clean-auth-template.vercel.app/og-image.png",
     locale: "en_US",
     siteName: "Full-Stack Auth Template",
     images: [
