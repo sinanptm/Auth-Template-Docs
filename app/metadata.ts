@@ -19,7 +19,6 @@ export const metadata: Metadata = {
   creator: "Muhammed Sinan",
   publisher: "Muhammed Sinan",
   applicationName: "Full-Stack Auth Template",
-  icons: "favicon.png",
   category: "Web Development",
   classification: "Authentication System Template",
   alternates: {
