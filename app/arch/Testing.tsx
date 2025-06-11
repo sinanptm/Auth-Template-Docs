@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { memo } from "react";
 
 const Testing = () => {
     return (
@@ -67,4 +68,4 @@ const Testing = () => {
     );
 };
 
-export default Testing;
+export default memo(Testing);

@@ -11,7 +11,7 @@ const Overview = () => {
                 <Card>
                     <CardHeader className="p-4 md:p-6">
                         <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Layers className="h-4 w-4 md:h-5 md:w-5" />
+                            <Layers aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
                             Clean Architecture
                         </CardTitle>
                     </CardHeader>
@@ -25,7 +25,7 @@ const Overview = () => {
                 <Card>
                     <CardHeader className="p-4 md:p-6">
                         <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Settings className="h-4 w-4 md:h-5 md:w-5" />
+                            <Settings aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
                             Highly Customizable
                         </CardTitle>
                     </CardHeader>
@@ -39,7 +39,7 @@ const Overview = () => {
                 <Card>
                     <CardHeader className="p-4 md:p-6">
                         <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Shield className="h-4 w-4 md:h-5 md:w-5" />
+                            <Shield aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
                             Complete Authentication
                         </CardTitle>
                     </CardHeader>
@@ -53,7 +53,7 @@ const Overview = () => {
                 <Card>
                     <CardHeader className="p-4 md:p-6">
                         <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Users className="h-4 w-4 md:h-5 md:w-5" />
+                            <Users aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
                             Role-Based Access
                         </CardTitle>
                     </CardHeader>
@@ -67,7 +67,7 @@ const Overview = () => {
                 <Card>
                     <CardHeader className="p-4 md:p-6">
                         <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Zap className="h-4 w-4 md:h-5 md:w-5" />
+                            <Zap aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
                             Modern Tech Stack
                         </CardTitle>
                     </CardHeader>
@@ -81,7 +81,7 @@ const Overview = () => {
                 <Card>
                     <CardHeader className="p-4 md:p-6">
                         <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Lock className="h-4 w-4 md:h-5 md:w-5" />
+                            <Lock aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
                             Security-First
                         </CardTitle>
                     </CardHeader>
@@ -100,27 +100,27 @@ const Overview = () => {
                 <CardContent className="p-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                         <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-green-600 text-sm md:text-base">JWT Authentication</h4>
+                            <h4 className="font-semibold text-green-500 text-sm md:text-base">JWT Authentication</h4>
                             <p className="text-xs md:text-sm text-muted-foreground">Access & refresh tokens with automatic refresh</p>
                         </div>
                         <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-blue-600 text-sm md:text-base">HTTP-Only Cookies</h4>
+                            <h4 className="font-semibold text-blue-400 text-sm md:text-base">HTTP-Only Cookies</h4>
                             <p className="text-xs md:text-sm text-muted-foreground">Secure token storage preventing XSS attacks</p>
                         </div>
                         <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-orange-600 text-sm md:text-base">Rate Limiting</h4>
+                            <h4 className="font-semibold text-orange-500 text-sm md:text-base">Rate Limiting</h4>
                             <p className="text-xs md:text-sm text-muted-foreground">Protection against brute force attacks</p>
                         </div>
                         <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-purple-600 text-sm md:text-base">Password Hashing</h4>
+                            <h4 className="font-semibold text-purple-400 text-sm md:text-base">Password Hashing</h4>
                             <p className="text-xs md:text-sm text-muted-foreground">bcrypt with 10 rounds for secure storage</p>
                         </div>
                         <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-red-600 text-sm md:text-base">Input Validation</h4>
+                            <h4 className="font-semibold text-red-500 text-sm md:text-base">Input Validation</h4>
                             <p className="text-xs md:text-sm text-muted-foreground">Comprehensive Joi schemas for all endpoints</p>
                         </div>
                         <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-indigo-600 text-sm md:text-base">CORS Protection</h4>
+                            <h4 className="font-semibold text-indigo-400 text-sm md:text-base">CORS Protection</h4>
                             <p className="text-xs md:text-sm text-muted-foreground">Configured origins and credentials handling</p>
                         </div>
                     </div>

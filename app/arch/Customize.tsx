@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Layers, Zap, Shield } from "lucide-react";
+import { memo } from "react";
 
 const Customize = () => {
     return (
@@ -18,7 +19,7 @@ const Customize = () => {
 
                 <div>
                     <h4 className="font-semibold text-lg text-green-400 mb-3 flex items-center gap-2">
-                        <Layers className="h-5 w-5" />
+                        <Layers aria-hidden="true" className="h-5 w-5" />
                         Clean Architecture Advantages
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -53,7 +54,7 @@ const Customize = () => {
 
                 <div>
                     <h4 className="font-semibold text-lg text-purple-400 mb-3 flex items-center gap-2">
-                        <Shield className="h-5 w-5" />
+                        <Shield aria-hidden="true" className="h-5 w-5" />
                         Easy Backend Customization
                     </h4>
                     <div className="space-y-3">
@@ -105,7 +106,7 @@ const Customize = () => {
                 {/* Scalability and Maintenance */}
                 <div>
                     <h4 className="font-semibold text-lg text-orange-400 mb-3 flex items-center gap-2">
-                        <Zap className="h-5 w-5" />
+                        <Zap aria-hidden="true" className="h-5 w-5" />
                         Scalability & Maintenance
                     </h4>
                     <ul className="space-y-2 text-sm text-gray-300">
@@ -127,4 +128,4 @@ const Customize = () => {
     );
 };
 
-export default Customize;
+export default memo(Customize);

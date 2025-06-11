@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, ExternalLink, Github, BookOpen, } from "lucide-react";
+import { memo } from "react";
 
 const Inspiration = () => {
     const references = [
@@ -9,7 +10,7 @@ const Inspiration = () => {
             url: "https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html",
             description:
                 "Core principles of Clean Architecture, emphasizing modular, testable, and maintainable code structures that shaped this project's foundation.",
-            icon: <BookOpen className="w-5 h-5" />,
+            icon: <BookOpen aria-hidden="true" className="w-5 h-5" />,
             color: "text-blue-400",
         },
         {
@@ -18,7 +19,7 @@ const Inspiration = () => {
             url: "https://github.com",
             description:
                 "Studied numerous open-source implementations of Clean Architecture and dependency injection to adopt battle-tested patterns.",
-            icon: <Github className="w-5 h-5" />,
+            icon: <Github aria-hidden="true" className="w-5 h-5" />,
             color: "text-gray-400",
         },
         {
@@ -27,7 +28,7 @@ const Inspiration = () => {
             url: "https://stackoverflow.com",
             description:
                 "Leveraged community-driven solutions and discussions to refine architecture decisions and solve complex implementation challenges.",
-            icon: <Users className="w-5 h-5" />,
+            icon: <Users aria-hidden="true" className="w-5 h-5" />,
             color: "text-orange-400",
         },
     ];
@@ -87,4 +88,4 @@ const Inspiration = () => {
     );
 };
 
-export default Inspiration;
+export default memo(Inspiration);

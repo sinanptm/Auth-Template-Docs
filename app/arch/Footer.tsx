@@ -1,8 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { memo } from "react";
 
-export const Footer = () => {
+const Footer = () => {
     return (
         <div className="space-y-6 mt-12">
             <Card className="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border-primary/20">
@@ -43,3 +44,5 @@ export const Footer = () => {
         </div>
     );
 };
+
+export default memo(Footer);

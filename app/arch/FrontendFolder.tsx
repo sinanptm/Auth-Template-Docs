@@ -8,6 +8,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 //@ts-ignore
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { useQueryState } from "nuqs";
+import { memo } from "react";
 
 interface FrontendFolderProps {
     getCategoryColor?: (category: string) => string;
@@ -313,4 +314,4 @@ const FrontendFolder = ({ getCategoryColor }: FrontendFolderProps) => {
     );
 };
 
-export default FrontendFolder;
+export default memo(FrontendFolder);
