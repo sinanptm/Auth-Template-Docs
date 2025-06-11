@@ -3,6 +3,7 @@ import { WrapperProps } from "@/types";
 import "@/styles/globals.css";
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from "react";
+import { Analytics } from '@vercel/analytics/next';
 
 export { metadata } from "./metadata";
 
@@ -14,6 +15,7 @@ const RootLayout = ({ children }: WrapperProps) => {
           <Suspense>
             {children}
           </Suspense>
+          <Analytics />
         </NuqsAdapter>
       </body>
     </html>

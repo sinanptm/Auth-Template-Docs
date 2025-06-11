@@ -18,6 +18,7 @@
     "@radix-ui/react-tabs": "^1.1.12",
     "@tailwindcss/postcss": "^4.1.8",
     "@types/react": "^19.1.7",
+    "@vercel/analytics": "^1.5.0",
     "axios": "^1.9.0",
     "axios-auth-refresh": "^3.3.6",
     "class-variance-authority": "^0.7.1",
