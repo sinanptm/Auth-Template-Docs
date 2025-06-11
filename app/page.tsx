@@ -3,12 +3,12 @@
 import { memo, useState, useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Footer } from "@/app/architecture/arch/Footer";
-import Overview from "@/app/architecture/arch/Overview";
-import Backend from "@/app/architecture/arch/Backend";
-import Frontend from "@/app/architecture/arch/Frontend";
-import AuthFlow from "@/app/architecture/arch/AuthFlow";
-import TechStack from "@/app/architecture/arch/TechStack";
+import { Footer } from "./arch/Footer";
+import Overview from "./arch/Overview";
+import Backend from "./arch/Backend";
+import Frontend from "./arch/Frontend";
+import AuthFlow from "./arch/AuthFlow";
+import TechStack from "./arch/TechStack";
 import { ChevronDown } from 'lucide-react';
 import {
     DropdownMenu,
@@ -16,10 +16,11 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import Testing from "@/app/architecture/arch/Testing";
+import Testing from "./arch/Testing";
+import { useQueryState } from "nuqs";
 
 const ArchitecturePage = () => {
-    const [activeTab, setActiveTab] = useState("overview");
+    const [activeTab, setActiveTab] = useQueryState("tab", { defaultValue: "overview" });
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -100,7 +101,7 @@ const ArchitecturePage = () => {
                         </DropdownMenu>
                     </div>
                 ) : (
-                    <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
+                        <Tabs value={activeTab!} onValueChange={setActiveTab} className="space-y-8">
                         <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
                             {tabItems.map((tab) => (
                                 <TabsTrigger key={tab.value} value={tab.value}>

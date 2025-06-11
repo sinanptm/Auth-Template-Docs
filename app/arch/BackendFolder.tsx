@@ -8,10 +8,12 @@ import { folderData } from "../data";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 //@ts-ignore
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { useQueryState } from 'nuqs';
+
 
 
 const BackendFolder = () => {
-    const [selectedFolder, setSelectedFolder] = useState<string>("src");
+    const [selectedFolder, setSelectedFolder] = useQueryState("folder", { defaultValue: "src" });
 
     const handleFolderClick = (folderKey: string) => {
         setSelectedFolder(folderKey);
@@ -55,7 +57,7 @@ const BackendFolder = () => {
         },
     };
 
-    const selectedData = folderData[selectedFolder];
+    const selectedData = folderData[selectedFolder!];
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
