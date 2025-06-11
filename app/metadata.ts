@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   creator: "Muhammed Sinan",
   publisher: "Muhammed Sinan",
   applicationName: "Full-Stack Auth Template",
+  icons: "favicon.png",
   category: "Web Development",
   classification: "Authentication System Template",
   formatDetection: {
@@ -64,11 +65,6 @@ export const metadata: Metadata = {
     },
   },
   metadataBase: new URL("https://full-stack-clean-auth-template.vercel.app"),
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
   verification: {
     google: "google332e521595495b52.html"
   },
@@ -80,6 +76,6 @@ export const metadata: Metadata = {
     "mobile-web-app-capable": "yes",
     "msapplication-TileColor": "#2B5797",
     "msapplication-tap-highlight": "no",
-    "theme-color": "#000000",
+    "icon": "/favicon.png"
   },
 };
