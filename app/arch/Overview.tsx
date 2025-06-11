@@ -93,8 +93,6 @@ const Overview = () => {
                 </Card>
             </div>
 
-            <Customize />
-
             <Card>
                 <CardHeader className="p-4 md:p-6">
                     <CardTitle className="text-lg md:text-xl">🛡️ Security Features</CardTitle>
@@ -128,6 +126,8 @@ const Overview = () => {
                     </div>
                 </CardContent>
             </Card>
+
+            <Customize />
 
             <Inspiration />
         </div>

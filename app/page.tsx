@@ -35,8 +35,8 @@ const ArchitecturePage = () => {
     const tabItems = [
         { value: "overview", label: "Overview" },
         { value: "backend", label: "Backend" },
-        { value: "testing", label: "Testing" },
         { value: "frontend", label: "Frontend" },
+        { value: "testing", label: "Testing" },
         { value: "auth-flow", label: "Auth Flow" },
         { value: "tech-stack", label: "Tech Stack" },
     ]
@@ -47,10 +47,10 @@ const ArchitecturePage = () => {
                 return <Overview />;
             case "backend":
                 return <Backend />;
-            case "testing":
-                return <Testing />;
             case "frontend":
                 return <Frontend />;
+            case "testing":
+                return <Testing />;
             case "auth-flow":
                 return <AuthFlow />;
             case "tech-stack":

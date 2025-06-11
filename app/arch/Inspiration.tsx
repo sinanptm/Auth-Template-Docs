@@ -38,7 +38,7 @@ const Inspiration = () => {
             <Card className="border-2 border-dashed border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5">
                 <CardHeader className="text-center pb-4">
                     <CardTitle className="text-xl md:text-2xl font-bold flex items-center justify-center gap-2">
-                        📚 Additional References & Community Wisdom
+                        📚 References & Community Wisdom
                     </CardTitle>
                     <p className="text-sm md:text-base text-muted-foreground max-w-3xl mx-auto">
                         This template synthesizes knowledge from industry leaders, open-source projects, and the global developer
