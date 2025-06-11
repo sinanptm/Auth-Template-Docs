@@ -952,32 +952,30 @@ export const generateRandomString = (length: number = 32): string => {
     },
 };
 
-// Additional metadata for the folder structure
 export const architectureLayers = {
     "Domain": {
-        description: "Pure business logic independent of external frameworks",
+    description: "The Domain layer represents the core business logic and domain-specific rules of the application. It is completely independent of any external frameworks, databases, or UI concerns. This layer defines the fundamental entities, interfaces, and business rules that form the backbone of the application, ensuring that the business logic remains pure and reusable.",
         folders: ["domain", "entities", "interfaces"],
-        dependencies: "None (framework-independent)"
+    dependencies: "No dependencies on external frameworks or technologies, ensuring the layer is framework-agnostic and independent."
     },
     "Application": {
-        description: "Use cases and application-specific business logic",
+      description: "The Application layer contains the use cases, which represent specific business operations or workflows. This layer coordinates the interaction between domain entities, repositories, and services, implementing the application’s business logic. It acts as the bridge between the domain layer and external concerns, ensuring that application-specific business processes are correctly executed.",
         folders: ["use_case"],
-        dependencies: "Domain layer only"
+      dependencies: "Depends on the Domain layer for access to business entities and interfaces, ensuring that use cases can orchestrate domain logic."
     },
     "Infrastructure": {
-        description: "External system implementations and technology adapters",
+      description: "The Infrastructure layer is responsible for the implementation of external systems, services, and technology adapters. This layer provides concrete implementations for the interfaces defined in the Domain layer, such as database models, external service integrations, API clients, and other technical solutions. It acts as a bridge between the core application and external environments.",
         folders: ["infrastructure", "models", "config"],
-        dependencies: "Domain interfaces, external libraries"
+      dependencies: "Relies on Domain interfaces for defining contracts but interacts with external libraries, databases, and services to implement those contracts."
     },
     "Presentation": {
-        description: "HTTP interface and external communication",
+      description: "The Presentation layer is responsible for handling user interactions and exposing the application’s functionality to external clients. This includes HTTP request and response handling, routing, and middleware. The layer translates HTTP requests into application use cases and formats responses according to external communication protocols. It ensures that incoming requests are properly processed and outgoing responses meet the clients' expectations.",
         folders: ["presentation", "controllers", "routes", "middlewares"],
-        dependencies: "Application layer, HTTP frameworks"
+      dependencies: "Depends on the Application layer to execute use cases and the HTTP frameworks (such as Express.js) to manage incoming and outgoing requests."
     },
     "Shared": {
-        description: "Common utilities and type definitions",
+      description: "The Shared layer contains common utilities and type definitions that are used across the entire application. This layer ensures consistency in types and provides a set of reusable utility functions for common tasks such as validation, logging, date formatting, and string manipulation. It helps promote code reuse and maintain consistency across layers.",
         folders: ["types", "utils"],
-        dependencies: "Minimal, used by all layers"
+      dependencies: "Minimal dependencies, used by all other layers to ensure consistency and reduce duplication of code."
     }
 };
-
