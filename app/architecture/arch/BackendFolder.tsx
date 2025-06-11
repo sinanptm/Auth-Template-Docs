@@ -4,7 +4,9 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { folderData } from "../data";
+//@ts-ignore
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+//@ts-ignore
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 

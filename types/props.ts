@@ -1,30 +1,9 @@
 import { ReactNode } from "react";
-import { ForgotPasswordTokenData, SigninFormData } from "./form";
 
 export interface WrapperProps {
   children: ReactNode;
 }
-export interface SigninFormProps {
-  onSubmit: (data: SigninFormData) => void;
-  isLoading?: boolean;
-  className?: string;
-  submitButtonText?: string;
 
-  onForgotPassword?: () => void;
-  showForgotPassword?: boolean;
-  forgotPasswordText?: string;
-  forgotPasswordLink?: string;
-
-  showSignUp?: boolean;
-  signUpText?: string;
-  signUpLinkText?: string;
-  signUpLink?: string;
-
-  defaultValues?: {
-    email?: string;
-    password?: string;
-  };
-}
 export interface ForgotPasswordDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -64,12 +43,7 @@ export interface BaseFormFieldProps {
 export interface FormFieldWrapperProps extends BaseFormFieldProps {
   children: (id: string, describedBy: string | undefined) => React.ReactNode;
 }
-export interface ResetPasswordFormProps {
-  email: string;
-  tokenData: ForgotPasswordTokenData;
-  onBackToLogin: () => void;
-  onSuccess: () => void;
-}
+
 export interface OtpVerificationFormProps {
   onSubmit: (otp: number) => void;
   onResendOtp: () => void;
