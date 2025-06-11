@@ -11,10 +11,10 @@ export const Footer = () => {
                     <div className="space-y-4 md:space-y-6">
                         <div>
                             <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                                <span className="text-amber-100">🚀</span> Kickstart Your Next Scalable App!
+                                <span className="text-amber-100">🎯</span> Ready to build your next project?
                             </h3>
                             <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 max-w-3xl mx-auto leading-relaxed">
-                                Jumpstart your development with this production-ready template, featuring clean architecture, modern tech, and scalable patterns tailored to your needs.
+                                Jump start your development with this production-ready template, featuring clean architecture, modern tech, and scalable patterns tailored to your needs.
                             </p>
                         </div>
 
