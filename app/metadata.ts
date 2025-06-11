@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Full-Stack Authentication Template | Clean Architecture",
     description: "Production-ready auth system with Next.js 15, Express.js 5, MongoDB & TypeScript. Features clean architecture, OAuth, OTP verification & admin panel.",
     images: ["/og-image.png"],
-    creator: "@yourusername"
+    creator: "@sinanptm"
   },
   robots: {
     index: true,
@@ -63,9 +63,7 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
     "apple-mobile-web-app-title": "Auth Template",
-    "format-detection": "telephone=no",
     "mobile-web-app-capable": "yes",
-    "msapplication-config": "/browserconfig.xml",
     "msapplication-TileColor": "#2B5797",
     "msapplication-tap-highlight": "no",
     "theme-color": "#000000",
