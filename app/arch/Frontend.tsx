@@ -130,42 +130,6 @@ const Frontend = () => {
                 </CardContent>
             </Card>
 
-
-            <Card>
-                <CardHeader className="p-4 md:p-6">
-                    <CardTitle className="text-lg md:text-xl">🎯 Custom Hooks</CardTitle>
-                </CardHeader>
-                <CardContent className="p-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                        <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-blue-600 text-sm md:text-base">Authentication Hooks</h4>
-                            <ul className="text-xs md:text-sm text-muted-foreground mt-1 space-y-1">
-                                <li>• useAuthUser</li>
-                                <li>• useAuthAdmin</li>
-                                <li>• useSignin</li>
-                                <li>• useSignup</li>
-                            </ul>
-                        </div>
-                        <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-green-600 text-sm md:text-base">API Hooks</h4>
-                            <ul className="text-xs md:text-sm text-muted-foreground mt-1 space-y-1">
-                                <li>• useGetProfile</li>
-                                <li>• useUpdateProfile</li>
-                                <li>• useVerifyOtp</li>
-                                <li>• useResetPassword</li>
-                            </ul>
-                        </div>
-                        <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-orange-600 text-sm md:text-base">Utility Hooks</h4>
-                            <ul className="text-xs md:text-sm text-muted-foreground mt-1 space-y-1">
-                                <li>• useLoading</li>
-                                <li>• useMailSetter</li>
-                                <li>• useAuthRedirectToast</li>
-                            </ul>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
         </div>
     );
 };

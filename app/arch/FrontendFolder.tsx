@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { frontendFolderData, frontendCategories } from "../ff";
+import { frontendFolderData, frontendCategories } from "../data";
 //@ts-ignore
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 //@ts-ignore
