@@ -12,29 +12,13 @@ import { useQueryState } from 'nuqs';
 
 
 
-const BackendFolder = () => {
+const BackendFolder = ({ getLayerColor }: any) => {
     const [selectedFolder, setSelectedFolder] = useQueryState("folder", { defaultValue: "src" });
 
     const handleFolderClick = (folderKey: string) => {
         setSelectedFolder(folderKey);
     };
 
-    const getLayerColor = (layer: string) => {
-        switch (layer) {
-            case "Domain":
-                return "bg-blue-900 text-blue-200";
-            case "Application":
-                return "bg-green-900 text-green-200";
-            case "Infrastructure":
-                return "bg-orange-900 text-orange-200";
-            case "Presentation":
-                return "bg-purple-900 text-purple-200";
-            case "Shared":
-                return "bg-gray-900 text-gray-200";
-            default:
-                return "bg-slate-900 text-slate-200";
-        }
-    };
     const customStyle = {
         ...vscDarkPlus,
         'pre[class*="language-"]': {
