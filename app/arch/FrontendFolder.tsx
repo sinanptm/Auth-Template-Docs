@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { frontendFolderData, frontendCategories } from "../data";
+import { frontendFolderData, frontendCategories } from "../FrontendFolderInfo";
 //@ts-ignore
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 //@ts-ignore

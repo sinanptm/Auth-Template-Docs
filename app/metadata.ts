@@ -76,6 +76,5 @@ export const metadata: Metadata = {
     "mobile-web-app-capable": "yes",
     "msapplication-TileColor": "#2B5797",
     "msapplication-tap-highlight": "no",
-    "icon": "/favicon.png"
   },
 };
