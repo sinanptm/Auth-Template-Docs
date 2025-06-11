@@ -1,19 +1,19 @@
 import { FolderInfo } from "@/types";
 
 export const folderData: Record<string, FolderInfo> = {
-    src: {
-        name: "src",
-        purpose: "Application Source Root Directory",
-        description: "The primary source directory serving as the foundation for all application code. Organized following Clean Architecture principles with clear separation of concerns across layers. This directory acts as the main entry point and orchestrates the entire application structure.",
-        fileTypes: ["TypeScript entry files", "Application bootstrapping", "Main configuration files"],
-        layer: "Root",
-        examples: ["index.ts"],
-        keyFeatures: [
-            "Clean Architecture layer organization",
-            "Centralized application bootstrapping",
-            "Environment-specific configurations",
-            "Main server initialization"
-        ],
+  src: {
+    name: "src",
+    purpose: "Application Source Root Directory",
+    description: "The primary source directory serving as the foundation for all application code. Organized following Clean Architecture principles with clear separation of concerns across layers. This directory acts as the main entry point and orchestrates the entire application structure.",
+    fileTypes: ["TypeScript entry files", "Application bootstrapping", "Main configuration files"],
+    layer: "Root",
+    examples: ["index.ts"],
+    keyFeatures: [
+      "Clean Architecture layer organization",
+      "Centralized application bootstrapping",
+      "Environment-specific configurations",
+      "Main server initialization"
+    ],
     dependencies: ["Express.js", "Node.js runtime", "TypeScript compiler"],
     codeExample: {
       code: `
@@ -52,42 +52,72 @@ app.listen(PORT, async () => {
       description: "The src/index.ts file is the application's entry point, initializing the Express.js server, setting up middleware (CORS, JSON, cookies), and mounting the API router. It triggers configuration loading and starts the server, following Clean Architecture for centralized bootstrapping.",
       filename: "index.ts"
     }
+  },
+  config: {
+    name: "config",
+    purpose: "Centralized Application Configuration Hub",
+    description: "Houses all configuration files essential for application initialization and external service connections. Manages environment variables, database connections, and application-wide settings. Provides a single source of truth for all configuration concerns, ensuring consistent setup across different environments (development, staging, production).",
+    fileTypes: ["Database connection configs", "Environment variable handlers", "Service initialization configs"],
+    layer: "Infrastructure",
+    examples: ["connectMongo.ts", "initConfig.ts", "index.ts"],
+    keyFeatures: [
+      "Environment-based configuration management",
+      "Database connection pooling and optimization",
+      "External service integration setup",
+      "Security configuration (CORS, rate limiting)",
+      "Centralized environment variable validation"
+    ],
+    dependencies: ["MongoDB", "dotenv", "cors", "helmet"],
+    codeExample: {
+      filename: "envConfig.ts",
+      code: `
+import dotenv from "dotenv";
+
+dotenv.config();
+
+export const MONGO_URI = process.env.MONGO_URI ?? "mongodb://mongo:27017/myapp";
+export const PORT = process.env.PORT ?? 8000;
+export const NODE_ENV = process.env.NODE_ENV ?? "dev";
+export const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET ?? "Secret";
+export const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET ?? "Secret";
+export const NODEMAILER_PASSKEY = process.env.NODEMAILER_PASSKEY;
+export const SENDER_EMAIL = process.env.SENDER_EMAIL;
+export const CLIENT_URL = process.env.CLIENT_URL ?? "http://localhost:3000";
+export const ADMIN_MAIL = process.env.ADMIN_MAIL ?? "admin@gmail.com";
+export const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? "fjfj";
+
+// Company Name for Email Sending
+export const COMPANY_NAME = "Mern stack template project";
+export const COMPANY_DOMAIN = "dev.com";
+export const RESET_LINK_EXPIRATION_MINUTES = 5;
+export const OTP_EXPIRATION_MINUTES = 15;
+
+export const FIRE_BASE_CLIENT_EMAIL = process.env.FIRE_BASE_CLIENT_EMAIL;
+export const FIRE_BASE_PROJECT_ID = process.env.FIRE_BASE_PROJECT_ID;
+export const FIRE_BASE_PRIVATE_KEY = process.env.FIRE_BASE_PRIVATE_KEY;
+        `,
+      description: "This file (`envConfig.ts`) loads the environment variables using `dotenv` to configure the application. It sets up values for MongoDB URI, port, secret keys, and other application-wide settings based on the environment configuration. If no environment variable is found, default values are used, ensuring the application has a fallback configuration."
     },
-    config: {
-        name: "config",
-        purpose: "Centralized Application Configuration Hub",
-        description: "Houses all configuration files essential for application initialization and external service connections. Manages environment variables, database connections, and application-wide settings. Provides a single source of truth for all configuration concerns, ensuring consistent setup across different environments (development, staging, production).",
-        fileTypes: ["Database connection configs", "Environment variable handlers", "Service initialization configs", "Application startup configurations"],
-        layer: "Infrastructure",
-        examples: ["connectMongo.ts", "initConfig.ts", "index.ts", "envConfig.ts", "corsConfig.ts"],
-        keyFeatures: [
-            "Environment-based configuration management",
-            "Database connection pooling and optimization",
-            "External service integration setup",
-            "Security configuration (CORS, rate limiting)",
-            "Centralized environment variable validation"
-        ],
-        dependencies: ["MongoDB", "dotenv", "cors", "helmet"]
-    },
-    di: {
-        name: "di",
-        purpose: "Dependency Injection & Inversion of Control Container",
-        description: "Implements the Dependency Injection pattern using Inversify container to manage application dependencies. This system enables loose coupling between components, facilitates unit testing through easy mocking, and provides a centralized registry for all service bindings. It's the backbone that makes Clean Architecture practical by ensuring proper dependency flow.",
-        fileTypes: ["Container binding definitions", "Service registration modules", "Interface-to-implementation mappings", "Dependency resolution configurations"],
-        layer: "Infrastructure",
-        examples: ["controllers.ts", "services.ts", "repositories.ts", "useCases.ts", "middlewares.ts", "index.ts"],
-        keyFeatures: [
-            "Inversify container management",
-            "Interface-based dependency binding",
-            "Singleton and transient service lifetimes",
-            "Automated dependency resolution",
-            "Type-safe dependency injection",
-            "Easy testing through mockable dependencies"
-        ],
-        dependencies: ["inversify", "reflect-metadata"],
-        codeExample: {
-            filename: "useCases.ts",
-            code: `
+  },
+  di: {
+    name: "di",
+    purpose: "Dependency Injection & Inversion of Control Container",
+    description: "Implements the Dependency Injection pattern using Inversify container to manage application dependencies. This system enables loose coupling between components, facilitates unit testing through easy mocking, and provides a centralized registry for all service bindings. It's the backbone that makes Clean Architecture practical by ensuring proper dependency flow.",
+    fileTypes: ["Container binding definitions", "Service registration modules", "Interface-to-implementation mappings", "Dependency resolution configurations"],
+    layer: "Infrastructure",
+    examples: ["controllers.ts", "services.ts", "repositories.ts", "useCases.ts", "middlewares.ts", "index.ts"],
+    keyFeatures: [
+      "Inversify container management",
+      "Interface-based dependency binding",
+      "Singleton and transient service lifetimes",
+      "Automated dependency resolution",
+      "Type-safe dependency injection",
+      "Easy testing through mockable dependencies"
+    ],
+    dependencies: ["inversify", "reflect-metadata"],
+    codeExample: {
+      filename: "useCases.ts",
+      code: `
 import container from ".";
 import SigninUseCase from "@/use_case/user/auth/SigninUseCase";
 import SignupUseCase from "@/use_case/user/auth/SignupUseCase";
@@ -110,45 +140,45 @@ container.bind(UseCases.OtpUseCase).to(OtpUseCase);
 container.bind(UseCases.ResetPasswordUseCase).to(ResetPasswordUseCase);
 container.bind(UseCases.OAuthUseCase).to(OAuthUseCase);
             `,
-            description: "Dependency injection bindings for use cases using Inversify container, enabling loose coupling and easy testing through interface-based dependency management.",
-        },
+      description: "Dependency injection bindings for use cases using Inversify container, enabling loose coupling and easy testing through interface-based dependency management.",
     },
-    domain: {
-        name: "domain",
-        purpose: "Pure Business Domain Layer - Core of Clean Architecture",
-        description: "The heart of Clean Architecture containing pure business logic, entities, and contracts. This layer is completely independent of external frameworks, databases, or UI concerns. It defines the core business rules, entities, and interfaces that represent the problem domain. All other layers depend on this layer, but it depends on nothing external.",
-        fileTypes: ["Pure business entities", "Domain interfaces and contracts", "Business rule implementations", "Domain-specific exceptions"],
-        layer: "Domain",
-        examples: ["entities/", "interfaces/", "CustomErrors.ts", "valueObjects/", "specifications/"],
-        keyFeatures: [
-            "Framework-independent business logic",
-            "Pure domain entities with business rules",
-            "Interface definitions for external dependencies",
-            "Domain-specific error handling",
-            "Business invariants and constraints",
-            "Value objects for domain concepts"
-        ],
-        dependencies: ["None - Pure TypeScript only"]
-    },
-    entities: {
-        name: "entities",
-        purpose: "Core Business Entities & Domain Models",
-        description: "Contains pure business objects that represent the fundamental concepts of your domain. These entities encapsulate business rules and invariants, remaining completely independent of any external frameworks or technologies. They define the structure and behavior of core business concepts while maintaining their integrity through well-defined interfaces.",
-        fileTypes: ["Business entity interfaces", "Domain model definitions", "Entity behavior specifications", "Business rule containers"],
-        layer: "Domain",
-        examples: ["IUser.ts", "IOtp.ts", "CustomErrors.ts", "IProduct.ts", "IOrder.ts"],
-        keyFeatures: [
-            "Framework-agnostic business models",
-            "Encapsulated business rules and validations",
-            "Immutable data structures where appropriate",
-            "Type-safe domain representations",
-            "Business invariant enforcement",
-            "Clear entity relationships and dependencies"
-        ],
-        dependencies: ["TypeScript types only"],
-        codeExample: {
-            filename: "IUser.ts",
-            code: `
+  },
+  domain: {
+    name: "domain",
+    purpose: "Pure Business Domain Layer - Core of Clean Architecture",
+    description: "The heart of Clean Architecture containing pure business logic, entities, and contracts. This layer is completely independent of external frameworks, databases, or UI concerns. It defines the core business rules, entities, and interfaces that represent the problem domain. All other layers depend on this layer, but it depends on nothing external.",
+    fileTypes: ["Pure business entities", "Domain interfaces and contracts", "Business rule implementations", "Domain-specific exceptions"],
+    layer: "Domain",
+    examples: ["entities/", "interfaces/", "CustomErrors.ts", "valueObjects/", "specifications/"],
+    keyFeatures: [
+      "Framework-independent business logic",
+      "Pure domain entities with business rules",
+      "Interface definitions for external dependencies",
+      "Domain-specific error handling",
+      "Business invariants and constraints",
+      "Value objects for domain concepts"
+    ],
+    dependencies: ["None - Pure TypeScript only"]
+  },
+  entities: {
+    name: "entities",
+    purpose: "Core Business Entities & Domain Models",
+    description: "Contains pure business objects that represent the fundamental concepts of your domain. These entities encapsulate business rules and invariants, remaining completely independent of any external frameworks or technologies. They define the structure and behavior of core business concepts while maintaining their integrity through well-defined interfaces.",
+    fileTypes: ["Business entity interfaces", "Domain model definitions", "Entity behavior specifications", "Business rule containers"],
+    layer: "Domain",
+    examples: ["IUser.ts", "IOtp.ts", "CustomErrors.ts", "IProduct.ts", "IOrder.ts"],
+    keyFeatures: [
+      "Framework-agnostic business models",
+      "Encapsulated business rules and validations",
+      "Immutable data structures where appropriate",
+      "Type-safe domain representations",
+      "Business invariant enforcement",
+      "Clear entity relationships and dependencies"
+    ],
+    dependencies: ["TypeScript types only"],
+    codeExample: {
+      filename: "IUser.ts",
+      code: `
 import { DateString } from "@/types";
 
 // User profile interface for public-facing operations
@@ -171,28 +201,28 @@ export default interface IUser extends IUserProfile {
   readonly token?: string;              // Session or verification token
 }
 `,
-            description: "Domain entity defining the structure and properties of a User in the business domain, with clear separation between public profile and complete entity data.",
-        },
+      description: "Domain entity defining the structure and properties of a User in the business domain, with clear separation between public profile and complete entity data.",
     },
-    interfaces: {
-        name: "interfaces",
-        purpose: "Domain Contracts & Dependency Inversion Interfaces",
-        description: "Defines the contracts that external layers must implement, ensuring the Dependency Inversion Principle. These interfaces act as boundaries between the domain layer and external concerns, allowing the domain to remain independent while specifying exactly what it needs from external systems like databases, email services, or authentication providers.",
-        fileTypes: ["Repository contracts", "External service interfaces", "Use case boundaries", "Domain service contracts"],
-        layer: "Domain",
-        examples: ["repositories/", "services/", "useCases/", "specifications/"],
-        keyFeatures: [
-            "Dependency inversion principle enforcement",
-            "Clear contracts for external systems",
-            "Interface segregation for focused responsibilities",
-            "Testability through mockable contracts",
-            "Technology-agnostic service definitions",
-            "Boundary definitions between layers"
-        ],
-        dependencies: ["Domain entities only"],
-        codeExample: {
-            filename: "repositories/IUserRepository.ts",
-            code: `
+  },
+  interfaces: {
+    name: "interfaces",
+    purpose: "Domain Contracts & Dependency Inversion Interfaces",
+    description: "Defines the contracts that external layers must implement, ensuring the Dependency Inversion Principle. These interfaces act as boundaries between the domain layer and external concerns, allowing the domain to remain independent while specifying exactly what it needs from external systems like databases, email services, or authentication providers.",
+    fileTypes: ["Repository contracts", "External service interfaces", "Use case boundaries", "Domain service contracts"],
+    layer: "Domain",
+    examples: ["repositories/", "services/", "useCases/", "specifications/"],
+    keyFeatures: [
+      "Dependency inversion principle enforcement",
+      "Clear contracts for external systems",
+      "Interface segregation for focused responsibilities",
+      "Testability through mockable contracts",
+      "Technology-agnostic service definitions",
+      "Boundary definitions between layers"
+    ],
+    dependencies: ["Domain entities only"],
+    codeExample: {
+      filename: "repositories/IUserRepository.ts",
+      code: `
 import IUser, { UserProfilePromise, UserPromise } from "@/domain/entities/IUser";
 import IBaseRepository from "./IBaseRepository";
 
@@ -208,79 +238,79 @@ export default interface IUserRepository extends IBaseRepository<IUser> {
   findByEmailWithCredentials(email: string): UserPromise;
 }
   `,
-            description: "Repository interface defining contracts for user data access operations, separating public profile access from authenticated operations while maintaining clean abstractions.",
-        },
+      description: "Repository interface defining contracts for user data access operations, separating public profile access from authenticated operations while maintaining clean abstractions.",
     },
-    "domain/repositories": {
-        name: "domain/repositories",
-        purpose: "Data Access Contract Definitions",
-        description: "Contains interfaces that define how the domain layer expects to interact with data storage systems. These contracts ensure that business logic remains independent of specific database technologies while clearly specifying data access requirements. The actual implementations reside in the infrastructure layer.",
-        fileTypes: ["Repository interface definitions", "Data access method contracts", "Query specification interfaces", "Base repository abstractions"],
-        layer: "Domain",
-        examples: ["IUserRepository.ts", "IOtpRepository.ts", "IBaseRepository.ts", "IProductRepository.ts"],
-        keyFeatures: [
-            "Database-agnostic data access contracts",
-            "CRUD operation standardization",
-            "Query method specifications",
-            "Transaction boundary definitions",
-            "Data consistency requirements",
-            "Repository pattern implementation"
-        ],
-        dependencies: ["Domain entities only"]
-    },
-    "domain/services": {
-        name: "domain/services",
-        purpose: "External Service Contract Specifications",
-        description: "Defines interfaces for all external services required by the domain layer, such as email delivery, authentication, encryption, and third-party API integrations. These contracts keep the domain layer completely independent of external service implementations while clearly specifying required capabilities and expected behaviors.",
-        fileTypes: ["External service interfaces", "Authentication service contracts", "Communication service interfaces", "Utility service definitions"],
-        layer: "Domain",
-        examples: ["ITokenService.ts", "IMailService.ts", "IHashService.ts", "IOAuthService.ts", "IValidatorService.ts", "IFileService.ts"],
-        keyFeatures: [
-            "External service abstraction",
-            "Provider-agnostic service contracts",
-            "Authentication and authorization interfaces",
-            "Communication service specifications",
-            "Utility service definitions",
-            "Error handling contract specifications"
-        ],
-        dependencies: ["Domain entities and types only"]
-    },
-    infrastructure: {
-        name: "infrastructure",
-        purpose: "External System Implementations & Technology Adapters",
-        description: "Implements all the interfaces defined in the domain layer using concrete technologies and external systems. This layer contains database models, third-party service integrations, external API clients, and technology-specific implementations. It acts as the bridge between your pure business logic and the external world.",
-        fileTypes: ["Database model implementations", "External service adapters", "Third-party API integrations", "Technology-specific implementations"],
-        layer: "Infrastructure",
-        examples: ["models/", "repositories/", "services/", "clients/", "adapters/"],
-        keyFeatures: [
-            "Concrete implementation of domain interfaces",
-            "Database technology integration (MongoDB, PostgreSQL)",
-            "External service provider implementations",
-            "Third-party API client wrappers",
-            "File system and cloud storage adapters",
-            "Caching layer implementations"
-        ],
-        dependencies: ["MongoDB", "External APIs", "Cloud services", "Third-party libraries"]
-    },
-    models: {
-        name: "models",
-        purpose: "Database Schema Definitions & ORM Models",
-        description: "Contains database-specific model definitions and schemas that map domain entities to database structures. These models handle data persistence, validation rules, indexing strategies, and database relationships. They serve as the bridge between the object-oriented domain and the relational/document database storage.",
-        fileTypes: ["Database schema definitions", "ORM model configurations", "Index and constraint definitions", "Migration specifications"],
-        layer: "Infrastructure",
-        examples: ["User.ts", "Otp.ts", "Product.ts", "Order.ts", "Session.ts"],
-        keyFeatures: [
-            "Mongoose schema definitions for MongoDB",
-            "Database validation and constraints",
-            "Index optimization for query performance",
-            "Relationship mapping and population rules",
-            "Schema versioning and migration support",
-            "Data transformation and serialization"
-        ],
-        dependencies: ["mongoose", "Database connection"],
-        codeExample: {
-            filename: "User.ts",
-            code: `
+  },
+  "domain/repositories": {
+    name: "domain/repositories",
+    purpose: "Data Access Contract Definitions",
+    description: "Contains interfaces that define how the domain layer expects to interact with data storage systems. These contracts ensure that business logic remains independent of specific database technologies while clearly specifying data access requirements. The actual implementations reside in the infrastructure layer.",
+    fileTypes: ["Repository interface definitions", "Data access method contracts", "Query specification interfaces", "Base repository abstractions"],
+    layer: "Domain",
+    examples: ["IUserRepository.ts", "IOtpRepository.ts", "IBaseRepository.ts", "IProductRepository.ts"],
+    keyFeatures: [
+      "Database-agnostic data access contracts",
+      "CRUD operation standardization",
+      "Query method specifications",
+      "Transaction boundary definitions",
+      "Data consistency requirements",
+      "Repository pattern implementation"
+    ],
+    dependencies: ["Domain entities only"]
+  },
+  "domain/services": {
+    name: "domain/services",
+    purpose: "External Service Contract Specifications",
+    description: "Defines interfaces for all external services required by the domain layer, such as email delivery, authentication, encryption, and third-party API integrations. These contracts keep the domain layer completely independent of external service implementations while clearly specifying required capabilities and expected behaviors.",
+    fileTypes: ["External service interfaces", "Authentication service contracts", "Communication service interfaces", "Utility service definitions"],
+    layer: "Domain",
+    examples: ["ITokenService.ts", "IMailService.ts", "IHashService.ts", "IOAuthService.ts", "IValidatorService.ts", "IFileService.ts"],
+    keyFeatures: [
+      "External service abstraction",
+      "Provider-agnostic service contracts",
+      "Authentication and authorization interfaces",
+      "Communication service specifications",
+      "Utility service definitions",
+      "Error handling contract specifications"
+    ],
+    dependencies: ["Domain entities and types only"]
+  },
+  infrastructure: {
+    name: "infrastructure",
+    purpose: "External System Implementations & Technology Adapters",
+    description: "Implements all the interfaces defined in the domain layer using concrete technologies and external systems. This layer contains database models, third-party service integrations, external API clients, and technology-specific implementations. It acts as the bridge between your pure business logic and the external world.",
+    fileTypes: ["Database model implementations", "External service adapters", "Third-party API integrations", "Technology-specific implementations"],
+    layer: "Infrastructure",
+    examples: ["models/", "repositories/", "services/", "clients/", "adapters/"],
+    keyFeatures: [
+      "Concrete implementation of domain interfaces",
+      "Database technology integration (MongoDB, PostgreSQL)",
+      "External service provider implementations",
+      "Third-party API client wrappers",
+      "File system and cloud storage adapters",
+      "Caching layer implementations"
+    ],
+    dependencies: ["MongoDB", "External APIs", "Cloud services", "Third-party libraries"]
+  },
+  models: {
+    name: "models",
+    purpose: "Database Schema Definitions & ORM Models",
+    description: "Contains database-specific model definitions and schemas that map domain entities to database structures. These models handle data persistence, validation rules, indexing strategies, and database relationships. They serve as the bridge between the object-oriented domain and the relational/document database storage.",
+    fileTypes: ["Database schema definitions", "ORM model configurations", "Index and constraint definitions", "Migration specifications"],
+    layer: "Infrastructure",
+    examples: ["User.ts", "Otp.ts", "Product.ts", "Order.ts", "Session.ts"],
+    keyFeatures: [
+      "Mongoose schema definitions for MongoDB",
+      "Database validation and constraints",
+      "Index optimization for query performance",
+      "Relationship mapping and population rules",
+      "Schema versioning and migration support",
+      "Data transformation and serialization"
+    ],
+    dependencies: ["mongoose", "Database connection"],
+    codeExample: {
+      filename: "User.ts",
+      code: `
 import IUser from "@/domain/entities/IUser";
 import { model, Schema } from "mongoose";
 
@@ -306,28 +336,28 @@ const userSchema = new Schema<IUser>(
 const UserModel = model<IUser>("User", userSchema);
 export default UserModel;
 `,
-            description: "Mongoose schema implementation for User entity with database-specific configurations, constraints, and automatic timestamp management.",
-        },
+      description: "Mongoose schema implementation for User entity with database-specific configurations, constraints, and automatic timestamp management.",
     },
-    "infrastructure/repositories": {
-        name: "infrastructure/repositories",
-        purpose: "Concrete Data Access Layer Implementations",
-        description: "Provides concrete implementations of repository interfaces defined in the domain layer. These classes handle actual database operations, query optimization, data transformation, and error handling. They encapsulate all database-specific logic while maintaining the contracts expected by the business layer.",
-        fileTypes: ["Repository class implementations", "Database query logic", "Data mapping and transformation", "Error handling and logging"],
-        layer: "Infrastructure",
-        examples: ["UserRepository.ts", "OtpRepository.ts", "ProductRepository.ts", "BaseRepository.ts"],
-        keyFeatures: [
-            "Complete CRUD operation implementations",
-            "Query optimization and performance tuning",
-            "Data transformation between domain and database models",
-            "Error handling and logging",
-            "Transaction management",
-            "Connection pooling and resource management"
-        ],
-        dependencies: ["mongoose", "Database models", "Domain interfaces"],
-        codeExample: {
-            filename: "UserRepository.ts",
-            code: `
+  },
+  "infrastructure/repositories": {
+    name: "infrastructure/repositories",
+    purpose: "Concrete Data Access Layer Implementations",
+    description: "Provides concrete implementations of repository interfaces defined in the domain layer. These classes handle actual database operations, query optimization, data transformation, and error handling. They encapsulate all database-specific logic while maintaining the contracts expected by the business layer.",
+    fileTypes: ["Repository class implementations", "Database query logic", "Data mapping and transformation", "Error handling and logging"],
+    layer: "Infrastructure",
+    examples: ["UserRepository.ts", "OtpRepository.ts", "ProductRepository.ts", "BaseRepository.ts"],
+    keyFeatures: [
+      "Complete CRUD operation implementations",
+      "Query optimization and performance tuning",
+      "Data transformation between domain and database models",
+      "Error handling and logging",
+      "Transaction management",
+      "Connection pooling and resource management"
+    ],
+    dependencies: ["mongoose", "Database models", "Domain interfaces"],
+    codeExample: {
+      filename: "UserRepository.ts",
+      code: `
 import IUserRepository from "@/domain/interfaces/repositories/IUserRepository";
 import UserModel from "../models/User";
 import IUser, { UserProfilePromise, UserPromise } from "@/domain/entities/IUser";
@@ -384,28 +414,28 @@ export default class UserRepository implements IUserRepository {
   }
 }
 `,
-            description: "Concrete implementation of IUserRepository using Mongoose for MongoDB operations, with optimized queries and proper separation between public and authenticated data access.",
-        },
+      description: "Concrete implementation of IUserRepository using Mongoose for MongoDB operations, with optimized queries and proper separation between public and authenticated data access.",
     },
-    "infrastructure/services": {
-        name: "infrastructure/services",
-        purpose: "External Service Integration & Implementation Layer",
-        description: "Houses concrete implementations of all external service interfaces defined in the domain layer. This includes authentication providers, email services, file storage, payment gateways, and other third-party integrations. Each service encapsulates the complexity of external APIs while providing a clean interface to the application layer.",
-        fileTypes: ["Service implementation classes", "External API client wrappers", "Authentication provider integrations", "Communication service implementations"],
-        layer: "Infrastructure",
-        examples: ["TokenService.ts", "HashService.ts", "MailService.ts", "OAuthService.ts", "ValidatorService.ts", "FileStorageService.ts"],
-        keyFeatures: [
-            "JWT token management and validation",
-            "Password hashing and verification",
-            "Email delivery with template support",
-            "OAuth provider integration (Google, Facebook, etc.)",
-            "File upload and cloud storage management",
-            "Input validation and sanitization"
-        ],
-        dependencies: ["jsonwebtoken", "bcrypt", "nodemailer", "passport", "multer", "aws-sdk"],
-        codeExample: {
-            filename: "TokenService.ts",
-            code: `
+  },
+  "infrastructure/services": {
+    name: "infrastructure/services",
+    purpose: "External Service Integration & Implementation Layer",
+    description: "Houses concrete implementations of all external service interfaces defined in the domain layer. This includes authentication providers, email services, file storage, payment gateways, and other third-party integrations. Each service encapsulates the complexity of external APIs while providing a clean interface to the application layer.",
+    fileTypes: ["Service implementation classes", "External API client wrappers", "Authentication provider integrations", "Communication service implementations"],
+    layer: "Infrastructure",
+    examples: ["TokenService.ts", "HashService.ts", "MailService.ts", "OAuthService.ts", "ValidatorService.ts", "FileStorageService.ts"],
+    keyFeatures: [
+      "JWT token management and validation",
+      "Password hashing and verification",
+      "Email delivery with template support",
+      "OAuth provider integration (Google, Facebook, etc.)",
+      "File upload and cloud storage management",
+      "Input validation and sanitization"
+    ],
+    dependencies: ["jsonwebtoken", "bcrypt", "nodemailer", "passport", "multer", "aws-sdk"],
+    codeExample: {
+      filename: "TokenService.ts",
+      code: `
 import ITokenService, {
   AccessTokenPayload,
   RefreshTokenPayload,
@@ -467,51 +497,51 @@ export default class TokenService implements ITokenService {
   }
 }
 `,
-            description: "JWT token service implementation handling access and refresh token operations with proper security practices, error handling, and token lifecycle management.",
-        },
+      description: "JWT token service implementation handling access and refresh token operations with proper security practices, error handling, and token lifecycle management.",
     },
-    presentation: {
-        name: "presentation",
-        purpose: "HTTP Interface & External Communication Layer",
-        description: "Serves as the external interface of the application, handling HTTP requests, responses, routing, and middleware. This layer translates HTTP requests into application use cases and formats responses appropriately. It includes controllers, middleware for cross-cutting concerns, and route definitions that expose the application's functionality to external clients.",
-        fileTypes: ["HTTP request controllers", "Express.js route definitions", "Middleware implementations", "Request/response transformers"],
-        layer: "Presentation",
-        examples: ["controllers/", "routes/", "middlewares/", "transformers/", "validators/"],
-        keyFeatures: [
-            "RESTful API endpoint management",
-            "HTTP request/response handling",
-            "Authentication and authorization middleware",
-            "Input validation and sanitization",
-            "Error handling and logging",
-            "Rate limiting and security middleware"
-        ],
-        dependencies: ["express", "cors", "helmet", "express-rate-limit", "express-validator"]
-    },
-    controllers: {
-        name: "controllers",
-        purpose: "HTTP Request Orchestration & Response Management",
-        description: "Handle incoming HTTP requests by orchestrating the appropriate use cases and formatting responses. Controllers act as the bridge between HTTP requests and business logic, ensuring proper request validation, error handling, and response formatting. They coordinate multiple use cases when needed and manage the HTTP-specific concerns like status codes and headers.",
-        fileTypes: ["HTTP request handlers", "Response formatting logic", "Request validation coordinators", "Error response managers"],
-        layer: "Presentation",
-        examples: [
-            "admin/AuthController.ts",
-            "admin/AdminController.ts",
-            "user/AuthControllers.ts",
-            "user/ProfileController.ts",
-            "user/ProductController.ts"
-        ],
-        keyFeatures: [
-            "HTTP request orchestration",
-            "Use case coordination and execution",
-            "Response formatting and status code management",
-            "Request validation and sanitization",
-            "Error handling and logging",
-            "Authentication token management"
-        ],
-        dependencies: ["express", "Use cases", "Validation libraries"],
-        codeExample: {
-            filename: "admin/AuthController.ts",
-            code: `
+  },
+  presentation: {
+    name: "presentation",
+    purpose: "HTTP Interface & External Communication Layer",
+    description: "Serves as the external interface of the application, handling HTTP requests, responses, routing, and middleware. This layer translates HTTP requests into application use cases and formats responses appropriately. It includes controllers, middleware for cross-cutting concerns, and route definitions that expose the application's functionality to external clients.",
+    fileTypes: ["HTTP request controllers", "Express.js route definitions", "Middleware implementations", "Request/response transformers"],
+    layer: "Presentation",
+    examples: ["controllers/", "routes/", "middlewares/", "transformers/", "validators/"],
+    keyFeatures: [
+      "RESTful API endpoint management",
+      "HTTP request/response handling",
+      "Authentication and authorization middleware",
+      "Input validation and sanitization",
+      "Error handling and logging",
+      "Rate limiting and security middleware"
+    ],
+    dependencies: ["express", "cors", "helmet", "express-rate-limit", "express-validator"]
+  },
+  controllers: {
+    name: "controllers",
+    purpose: "HTTP Request Orchestration & Response Management",
+    description: "Handle incoming HTTP requests by orchestrating the appropriate use cases and formatting responses. Controllers act as the bridge between HTTP requests and business logic, ensuring proper request validation, error handling, and response formatting. They coordinate multiple use cases when needed and manage the HTTP-specific concerns like status codes and headers.",
+    fileTypes: ["HTTP request handlers", "Response formatting logic", "Request validation coordinators", "Error response managers"],
+    layer: "Presentation",
+    examples: [
+      "admin/AuthController.ts",
+      "admin/AdminController.ts",
+      "user/AuthControllers.ts",
+      "user/ProfileController.ts",
+      "user/ProductController.ts"
+    ],
+    keyFeatures: [
+      "HTTP request orchestration",
+      "Use case coordination and execution",
+      "Response formatting and status code management",
+      "Request validation and sanitization",
+      "Error handling and logging",
+      "Authentication token management"
+    ],
+    dependencies: ["express", "Use cases", "Validation libraries"],
+    codeExample: {
+      filename: "admin/AuthController.ts",
+      code: `
 import { UseCases } from "@/di/useCases";
 import { Cookies, StatusCode } from "@/types";
 import AdminSigninUseCase from "@/use_case/admin/SigninUseCase";
@@ -564,27 +594,27 @@ export default class AdminAuthController {
     });
 }
             `,
-            description: "HTTP controller handling admin authentication requests with proper security measures, cookie management, and use case orchestration.",
-        },
+      description: "HTTP controller handling admin authentication requests with proper security measures, cookie management, and use case orchestration.",
     },
-    middlewares: {
-        name: "middlewares",
-        purpose: "Cross-Cutting HTTP Concerns & Request Processing Pipeline",
-        description: "Implements middleware functions that handle cross-cutting concerns in the HTTP request pipeline. This includes authentication verification, request validation, error handling, logging, rate limiting, and security headers. Middleware ensures consistent behavior across all routes and provides reusable functionality for common HTTP processing needs.",
-        fileTypes: ["Authentication middleware", "Authorization guards", "Error handling middleware", "Validation middleware", "Security middleware"],
-        layer: "Presentation",
-        examples: ["UserAuthMiddleware.ts", "AdminAuthMiddleware.ts", "ErrorHandler.ts", "RateLimiterMiddleware.ts", "ValidationMiddleware.ts"],
-        keyFeatures: [
-            "JWT token validation and user context injection",
-            "Role-based access control",
-            "Global error handling and logging",
-            "Request rate limiting and throttling",
-            "Input validation and sanitization",
-            "Security headers and CORS management"
-        ],
-      dependencies: ["express", "jsonwebtoken", "express-rate-limit", "helmet", "express-validator"],
-      codeExample: {
-        code: `
+  },
+  middlewares: {
+    name: "middlewares",
+    purpose: "Cross-Cutting HTTP Concerns & Request Processing Pipeline",
+    description: "Implements middleware functions that handle cross-cutting concerns in the HTTP request pipeline. This includes authentication verification, request validation, error handling, logging, rate limiting, and security headers. Middleware ensures consistent behavior across all routes and provides reusable functionality for common HTTP processing needs.",
+    fileTypes: ["Authentication middleware", "Authorization guards", "Error handling middleware", "Validation middleware", "Security middleware"],
+    layer: "Presentation",
+    examples: ["UserAuthMiddleware.ts", "AdminAuthMiddleware.ts", "ErrorHandler.ts", "RateLimiterMiddleware.ts", "ValidationMiddleware.ts"],
+    keyFeatures: [
+      "JWT token validation and user context injection",
+      "Role-based access control",
+      "Global error handling and logging",
+      "Request rate limiting and throttling",
+      "Input validation and sanitization",
+      "Security headers and CORS management"
+    ],
+    dependencies: ["express", "jsonwebtoken", "express-rate-limit", "helmet", "express-validator"],
+    codeExample: {
+      code: `
 // Import Express and app-specific types
 import { NextFunction, Response } from "express";
 import { CustomRequest, StatusCode, UserRole } from "@/types"; // Custom types
@@ -629,29 +659,29 @@ export default class AdminAuthMiddleware {
   }
 }
         `,
-        filename: "AdminAuthMiddleware.ts",
-        description: "The AdminAuthMiddleware.ts file implements a middleware class for securing admin-specific API routes. It verifies JWT access tokens using the injected TokenService, ensuring the token is valid and contains the required admin role. The middleware extracts user data (email and ID) and attaches it to the request object for use in subsequent handlers. It enforces strict security by rejecting requests with missing, invalid, or non-admin tokens, returning appropriate HTTP status codes and error messages."
-      }
-    },
-    routes: {
-        name: "routes",
-        purpose: "API Endpoint Definition & Route Organization",
-        description: "Defines and organizes all API endpoints, mapping HTTP routes to their corresponding controllers and middleware. Routes are organized by feature areas and user types, providing a clear structure for API navigation. Each route definition specifies the HTTP method, path, middleware chain, and controller action.",
-        fileTypes: ["Route definition modules", "API endpoint configurations", "Route group organizations", "Middleware binding specifications"],
-        layer: "Presentation",
-        examples: ["admin/authRoutes.ts", "admin/userRoutes.ts", "user/authRoutes.ts", "user/profileRoutes.ts", "index.ts"],
-        keyFeatures: [
-            "RESTful route organization",
-            "Feature-based route grouping",
-            "Middleware chain configuration",
-            "Controller method binding",
-            "Route parameter handling",
-            "API versioning support"
-        ],
-        dependencies: ["express", "Controllers", "Middleware"],
-        codeExample: {
-            filename: "admin/authRoutes.ts",
-            code: `
+      filename: "AdminAuthMiddleware.ts",
+      description: "The AdminAuthMiddleware.ts file implements a middleware class for securing admin-specific API routes. It verifies JWT access tokens using the injected TokenService, ensuring the token is valid and contains the required admin role. The middleware extracts user data (email and ID) and attaches it to the request object for use in subsequent handlers. It enforces strict security by rejecting requests with missing, invalid, or non-admin tokens, returning appropriate HTTP status codes and error messages."
+    }
+  },
+  routes: {
+    name: "routes",
+    purpose: "API Endpoint Definition & Route Organization",
+    description: "Defines and organizes all API endpoints, mapping HTTP routes to their corresponding controllers and middleware. Routes are organized by feature areas and user types, providing a clear structure for API navigation. Each route definition specifies the HTTP method, path, middleware chain, and controller action.",
+    fileTypes: ["Route definition modules", "API endpoint configurations", "Route group organizations", "Middleware binding specifications"],
+    layer: "Presentation",
+    examples: ["admin/authRoutes.ts", "admin/userRoutes.ts", "user/authRoutes.ts", "user/profileRoutes.ts", "index.ts"],
+    keyFeatures: [
+      "RESTful route organization",
+      "Feature-based route grouping",
+      "Middleware chain configuration",
+      "Controller method binding",
+      "Route parameter handling",
+      "API versioning support"
+    ],
+    dependencies: ["express", "Controllers", "Middleware"],
+    codeExample: {
+      filename: "admin/authRoutes.ts",
+      code: `
 import { resolve } from "@/di";
 import { Controllers } from "@/di/controllers";
 import AdminAuthController from "@/presentation/controllers/admin/AuthController";
@@ -674,28 +704,28 @@ router.post("/refresh", authController.refreshAccessToken.bind(authController));
 
 export default router;
 `,
-            description: "Express router defining admin authentication endpoints with proper controller method binding and dependency injection integration.",
-        },
+      description: "Express router defining admin authentication endpoints with proper controller method binding and dependency injection integration.",
     },
-    types: {
-        name: "types",
-        purpose: "Shared Type Definitions & TypeScript Contracts",
-        description: "Centralizes all TypeScript type definitions, interfaces, enums, and utility types used throughout the application. This ensures type consistency across layers and provides a single source of truth for shared data structures. Includes API types, common enums, utility types, and global type definitions that enhance type safety and developer experience.",
-        fileTypes: ["Global type definitions", "API request/response types", "Enum definitions", "Utility type helpers", "Shared interface definitions"],
-        layer: "Shared",
-        examples: ["index.ts", "api.ts", "common.ts", "enums.ts", "utilities.ts"],
-        keyFeatures: [
-            "Centralized type definition management",
-            "API contract type definitions",
-            "Reusable utility types and helpers",
-            "Enum definitions for constants",
-            "Generic type constraints and mappings",
-            "Type-safe configuration definitions"
-        ],
-        dependencies: ["TypeScript", "Express Types"],
-        codeExample: {
-            filename: "index.ts",
-            code: `
+  },
+  types: {
+    name: "types",
+    purpose: "Shared Type Definitions & TypeScript Contracts",
+    description: "Centralizes all TypeScript type definitions, interfaces, enums, and utility types used throughout the application. This ensures type consistency across layers and provides a single source of truth for shared data structures. Includes API types, common enums, utility types, and global type definitions that enhance type safety and developer experience.",
+    fileTypes: ["Global type definitions", "API request/response types", "Enum definitions", "Utility type helpers", "Shared interface definitions"],
+    layer: "Shared",
+    examples: ["index.ts", "api.ts", "common.ts", "enums.ts", "utilities.ts"],
+    keyFeatures: [
+      "Centralized type definition management",
+      "API contract type definitions",
+      "Reusable utility types and helpers",
+      "Enum definitions for constants",
+      "Generic type constraints and mappings",
+      "Type-safe configuration definitions"
+    ],
+    dependencies: ["TypeScript", "Express Types"],
+    codeExample: {
+      filename: "index.ts",
+      code: `
 import { Request } from "express";
 
 export enum UserRole {
@@ -741,34 +771,34 @@ export interface CustomRequest extends Request {
   };
 }
         `,
-            description: "Defines common types, enums, and request extensions used across the application. Includes user roles, cookie names, and custom request interfaces."
-        }
-    },
-    use_case: {
-        name: "use_case",
-        purpose: "Application Business Logic Orchestration Layer",
-        description: "Contains the core application logic that orchestrates domain entities, repositories, and external services to fulfill specific business use cases. This layer implements the actual business workflows and rules, coordinating between different domain services while remaining independent of external frameworks. Each use case represents a single business operation or user story.",
-        fileTypes: ["Business workflow implementations", "Use case orchestration logic", "Application service coordinators", "Business rule enforcers"],
-        layer: "Application",
-        examples: [
-            "admin/GetUsersUseCase.ts",
-            "admin/SigninUseCase.ts",
-            "user/auth/SignupUseCase.ts",
-            "user/GetProfileUseCase.ts",
-            "user/UpdateProfileUseCase.ts"
-        ],
-        keyFeatures: [
-            "Business workflow orchestration",
-            "Domain service coordination",
-            "Input validation and business rule enforcement",
-            "Transaction management and consistency",
-            "Error handling and business exception management",
-            "Integration between multiple domain services"
-        ],
-        dependencies: ["Domain interfaces", "Repository contracts", "Service contracts"],
-        codeExample: {
-            filename: "user/auth/SignupUseCase.ts",
-            code: `
+      description: "Defines common types, enums, and request extensions used across the application. Includes user roles, cookie names, and custom request interfaces."
+    }
+  },
+  use_case: {
+    name: "use_case",
+    purpose: "Application Business Logic Orchestration Layer",
+    description: "Contains the core application logic that orchestrates domain entities, repositories, and external services to fulfill specific business use cases. This layer implements the actual business workflows and rules, coordinating between different domain services while remaining independent of external frameworks. Each use case represents a single business operation or user story.",
+    fileTypes: ["Business workflow implementations", "Use case orchestration logic", "Application service coordinators", "Business rule enforcers"],
+    layer: "Application",
+    examples: [
+      "admin/GetUsersUseCase.ts",
+      "admin/SigninUseCase.ts",
+      "user/auth/SignupUseCase.ts",
+      "user/GetProfileUseCase.ts",
+      "user/UpdateProfileUseCase.ts"
+    ],
+    keyFeatures: [
+      "Business workflow orchestration",
+      "Domain service coordination",
+      "Input validation and business rule enforcement",
+      "Transaction management and consistency",
+      "Error handling and business exception management",
+      "Integration between multiple domain services"
+    ],
+    dependencies: ["Domain interfaces", "Repository contracts", "Service contracts"],
+    codeExample: {
+      filename: "user/auth/SignupUseCase.ts",
+      code: `
 import { Repositories } from "@/di/repositories";
 import { Services } from "@/di/services";
 import IUser from "@/domain/entities/IUser";
@@ -827,83 +857,83 @@ export default class SignupUseCase {
   }
 }
             `,
-            description:
-                "Use case implementing user signup business logic with comprehensive validation, duplicate checking, password hashing, and secure user creation workflow.",
-        },
+      description:
+        "Use case implementing user signup business logic with comprehensive validation, duplicate checking, password hashing, and secure user creation workflow.",
     },
-    "use_case/admin": {
-        name: "use_case/admin",
-        purpose: "Administrative Business Logic & Management Operations",
-        description:
-            "Contains business logic specifically designed for administrative operations such as user management, system configuration, reporting, and administrative authentication. These use cases typically require elevated privileges and handle system-wide operations that regular users cannot perform. Each use case implements specific administrative workflows while maintaining proper authorization and audit logging.",
-        fileTypes: ["Administrative workflow implementations", "User management operations", "System configuration logic", "Reporting and analytics use cases"],
-        layer: "Application",
-        examples: ["GetUsersUseCase.ts", "UpdateUserStatusUseCase.ts", "SigninUseCase.ts", "GenerateReportsUseCase.ts", "ManageSystemSettingsUseCase.ts"],
-        keyFeatures: [
-            "User account management and moderation",
-            "System-wide configuration management",
-            "Administrative authentication and session management",
-            "Bulk operations and data management",
-            "Audit logging and compliance reporting",
-            "Role and permission management"
-        ],
-        dependencies: ["Admin repositories", "Audit services", "Notification services"]
-    },
-    "use_case/user": {
-        name: "use_case/user",
-        purpose: "End-User Business Logic & Self-Service Operations",
-        description:
-            "Implements business logic for end-user operations including profile management, account settings, user authentication, and self-service features. These use cases focus on individual user workflows and personal data management while ensuring proper authorization and data privacy. Each use case represents a specific user journey or feature.",
-        fileTypes: ["User workflow implementations", "Profile management operations", "Self-service feature logic", "User preference handling"],
-        layer: "Application",
-        examples: ["auth/", "GetProfileUseCase.ts", "UpdateProfileUseCase.ts", "ChangePasswordUseCase.ts", "DeleteAccountUseCase.ts"],
-        keyFeatures: [
-            "User profile management and customization",
-            "Account security and privacy controls",
-            "Personal data export and portability",
-            "Notification preferences and settings",
-            "Social features and connections",
-            "User activity tracking and analytics"
-        ],
-        dependencies: ["User repositories", "Profile services", "Notification services"]
-    },
-    auth: {
-        name: "auth",
-        purpose: "Authentication & Authorization Business Logic Hub",
-        description:
-            "Houses all authentication-related business logic including user registration, login, password management, OAuth integration, multi-factor authentication, and session management. This module ensures secure user authentication flows while providing flexibility for different authentication methods and maintaining security best practices throughout the user lifecycle.",
-        fileTypes: ["Authentication workflow implementations", "Authorization logic", "Session management operations", "Security validation use cases"],
-        layer: "Application",
-        examples: ["SignupUseCase.ts", "SigninUseCase.ts", "OAuthUseCase.ts", "OtpUseCase.ts", "ResetPasswordUseCase.ts", "RefreshTokenUseCase.ts"],
-        keyFeatures: [
-            "Multi-method authentication support (email/password, OAuth, OTP)",
-            "Secure password reset and recovery workflows",
-            "Two-factor authentication implementation",
-            "Session management and token refresh logic",
-            "Account verification and email confirmation",
-            "Security event logging and monitoring"
-        ],
-        dependencies: ["Authentication services", "Email services", "Token services", "OTP services"]
-    },
-    utils: {
-        name: "utils",
-        purpose: "Reusable Utility Functions & Common Operations Hub",
-        description: "Provides a comprehensive collection of utility functions, helper methods, and common operations used across the entire application. This includes data transformation utilities, validation helpers, logging utilities, date/time operations, string manipulation, and other generic functions that promote code reusability and maintain consistency throughout the application.",
-        fileTypes: ["Utility function collections", "Helper method libraries", "Common operation implementations", "Generic algorithm implementations"],
-        layer: "Shared",
-        examples: ["generateOtp.ts", "logger.ts", "dateUtils.ts", "stringUtils.ts", "validationHelpers.ts", "index.ts"],
-        keyFeatures: [
-            "Data transformation and formatting utilities",
-            "Validation and sanitization helpers",
-            "Logging and debugging utilities",
-            "Date/time manipulation functions",
-            "String processing and formatting",
-            "Error handling and async operation helpers"
-        ],
-        dependencies: ["Minimal external dependencies", "Node.js built-ins"],
-        codeExample: {
-            filename: "utils/index.ts",
-            code: `
+  },
+  "use_case/admin": {
+    name: "use_case/admin",
+    purpose: "Administrative Business Logic & Management Operations",
+    description:
+      "Contains business logic specifically designed for administrative operations such as user management, system configuration, reporting, and administrative authentication. These use cases typically require elevated privileges and handle system-wide operations that regular users cannot perform. Each use case implements specific administrative workflows while maintaining proper authorization and audit logging.",
+    fileTypes: ["Administrative workflow implementations", "User management operations", "System configuration logic", "Reporting and analytics use cases"],
+    layer: "Application",
+    examples: ["GetUsersUseCase.ts", "UpdateUserStatusUseCase.ts", "SigninUseCase.ts", "GenerateReportsUseCase.ts", "ManageSystemSettingsUseCase.ts"],
+    keyFeatures: [
+      "User account management and moderation",
+      "System-wide configuration management",
+      "Administrative authentication and session management",
+      "Bulk operations and data management",
+      "Audit logging and compliance reporting",
+      "Role and permission management"
+    ],
+    dependencies: ["Admin repositories", "Audit services", "Notification services"]
+  },
+  "use_case/user": {
+    name: "use_case/user",
+    purpose: "End-User Business Logic & Self-Service Operations",
+    description:
+      "Implements business logic for end-user operations including profile management, account settings, user authentication, and self-service features. These use cases focus on individual user workflows and personal data management while ensuring proper authorization and data privacy. Each use case represents a specific user journey or feature.",
+    fileTypes: ["User workflow implementations", "Profile management operations", "Self-service feature logic", "User preference handling"],
+    layer: "Application",
+    examples: ["auth/", "GetProfileUseCase.ts", "UpdateProfileUseCase.ts", "ChangePasswordUseCase.ts", "DeleteAccountUseCase.ts"],
+    keyFeatures: [
+      "User profile management and customization",
+      "Account security and privacy controls",
+      "Personal data export and portability",
+      "Notification preferences and settings",
+      "Social features and connections",
+      "User activity tracking and analytics"
+    ],
+    dependencies: ["User repositories", "Profile services", "Notification services"]
+  },
+  auth: {
+    name: "auth",
+    purpose: "Authentication & Authorization Business Logic Hub",
+    description:
+      "Houses all authentication-related business logic including user registration, login, password management, OAuth integration, multi-factor authentication, and session management. This module ensures secure user authentication flows while providing flexibility for different authentication methods and maintaining security best practices throughout the user lifecycle.",
+    fileTypes: ["Authentication workflow implementations", "Authorization logic", "Session management operations", "Security validation use cases"],
+    layer: "Application",
+    examples: ["SignupUseCase.ts", "SigninUseCase.ts", "OAuthUseCase.ts", "OtpUseCase.ts", "ResetPasswordUseCase.ts", "RefreshTokenUseCase.ts"],
+    keyFeatures: [
+      "Multi-method authentication support (email/password, OAuth, OTP)",
+      "Secure password reset and recovery workflows",
+      "Two-factor authentication implementation",
+      "Session management and token refresh logic",
+      "Account verification and email confirmation",
+      "Security event logging and monitoring"
+    ],
+    dependencies: ["Authentication services", "Email services", "Token services", "OTP services"]
+  },
+  utils: {
+    name: "utils",
+    purpose: "Reusable Utility Functions & Common Operations Hub",
+    description: "Provides a comprehensive collection of utility functions, helper methods, and common operations used across the entire application. This includes data transformation utilities, validation helpers, logging utilities, date/time operations, string manipulation, and other generic functions that promote code reusability and maintain consistency throughout the application.",
+    fileTypes: ["Utility function collections", "Helper method libraries", "Common operation implementations", "Generic algorithm implementations"],
+    layer: "Shared",
+    examples: ["generateOtp.ts", "logger.ts", "dateUtils.ts", "stringUtils.ts", "validationHelpers.ts", "index.ts"],
+    keyFeatures: [
+      "Data transformation and formatting utilities",
+      "Validation and sanitization helpers",
+      "Logging and debugging utilities",
+      "Date/time manipulation functions",
+      "String processing and formatting",
+      "Error handling and async operation helpers"
+    ],
+    dependencies: ["Minimal external dependencies", "Node.js built-ins"],
+    codeExample: {
+      filename: "utils/index.ts",
+      code: `
 import { NextFunction, Response } from "express";
 import { CustomRequest } from "@/types";
 
@@ -947,35 +977,35 @@ export const generateRandomString = (length: number = 32): string => {
   return result;
 };
             `,
-            description: "Collection of utility functions including OTP generation, async error handling, date formatting, input sanitization, and random string generation for common application needs."
-        }
-    },
+      description: "Collection of utility functions including OTP generation, async error handling, date formatting, input sanitization, and random string generation for common application needs."
+    }
+  },
 };
 
 export const architectureLayers = {
-    "Domain": {
+  "Domain": {
     description: "The Domain layer represents the core business logic and domain-specific rules of the application. It is completely independent of any external frameworks, databases, or UI concerns. This layer defines the fundamental entities, interfaces, and business rules that form the backbone of the application, ensuring that the business logic remains pure and reusable.",
-        folders: ["domain", "entities", "interfaces"],
+    folders: ["domain", "entities", "interfaces"],
     dependencies: "No dependencies on external frameworks or technologies, ensuring the layer is framework-agnostic and independent."
-    },
-    "Application": {
-      description: "The Application layer contains the use cases, which represent specific business operations or workflows. This layer coordinates the interaction between domain entities, repositories, and services, implementing the application’s business logic. It acts as the bridge between the domain layer and external concerns, ensuring that application-specific business processes are correctly executed.",
-        folders: ["use_case"],
-      dependencies: "Depends on the Domain layer for access to business entities and interfaces, ensuring that use cases can orchestrate domain logic."
-    },
-    "Infrastructure": {
-      description: "The Infrastructure layer is responsible for the implementation of external systems, services, and technology adapters. This layer provides concrete implementations for the interfaces defined in the Domain layer, such as database models, external service integrations, API clients, and other technical solutions. It acts as a bridge between the core application and external environments.",
-        folders: ["infrastructure", "models", "config"],
-      dependencies: "Relies on Domain interfaces for defining contracts but interacts with external libraries, databases, and services to implement those contracts."
-    },
-    "Presentation": {
-      description: "The Presentation layer is responsible for handling user interactions and exposing the application’s functionality to external clients. This includes HTTP request and response handling, routing, and middleware. The layer translates HTTP requests into application use cases and formats responses according to external communication protocols. It ensures that incoming requests are properly processed and outgoing responses meet the clients' expectations.",
-        folders: ["presentation", "controllers", "routes", "middlewares"],
-      dependencies: "Depends on the Application layer to execute use cases and the HTTP frameworks (such as Express.js) to manage incoming and outgoing requests."
-    },
-    "Shared": {
-      description: "The Shared layer contains common utilities and type definitions that are used across the entire application. This layer ensures consistency in types and provides a set of reusable utility functions for common tasks such as validation, logging, date formatting, and string manipulation. It helps promote code reuse and maintain consistency across layers.",
-        folders: ["types", "utils"],
-      dependencies: "Minimal dependencies, used by all other layers to ensure consistency and reduce duplication of code."
-    }
+  },
+  "Application": {
+    description: "The Application layer contains the use cases, which represent specific business operations or workflows. This layer coordinates the interaction between domain entities, repositories, and services, implementing the application’s business logic. It acts as the bridge between the domain layer and external concerns, ensuring that application-specific business processes are correctly executed.",
+    folders: ["use_case"],
+    dependencies: "Depends on the Domain layer for access to business entities and interfaces, ensuring that use cases can orchestrate domain logic."
+  },
+  "Infrastructure": {
+    description: "The Infrastructure layer is responsible for the implementation of external systems, services, and technology adapters. This layer provides concrete implementations for the interfaces defined in the Domain layer, such as database models, external service integrations, API clients, and other technical solutions. It acts as a bridge between the core application and external environments.",
+    folders: ["infrastructure", "models", "config"],
+    dependencies: "Relies on Domain interfaces for defining contracts but interacts with external libraries, databases, and services to implement those contracts."
+  },
+  "Presentation": {
+    description: "The Presentation layer is responsible for handling user interactions and exposing the application’s functionality to external clients. This includes HTTP request and response handling, routing, and middleware. The layer translates HTTP requests into application use cases and formats responses according to external communication protocols. It ensures that incoming requests are properly processed and outgoing responses meet the clients' expectations.",
+    folders: ["presentation", "controllers", "routes", "middlewares"],
+    dependencies: "Depends on the Application layer to execute use cases and the HTTP frameworks (such as Express.js) to manage incoming and outgoing requests."
+  },
+  "Shared": {
+    description: "The Shared layer contains common utilities and type definitions that are used across the entire application. This layer ensures consistency in types and provides a set of reusable utility functions for common tasks such as validation, logging, date formatting, and string manipulation. It helps promote code reuse and maintain consistency across layers.",
+    folders: ["types", "utils"],
+    dependencies: "Minimal dependencies, used by all other layers to ensure consistency and reduce duplication of code."
+  }
 };
