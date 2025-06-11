@@ -5,7 +5,6 @@ import Link from "next/link";
 export const Footer = () => {
     return (
         <div className="space-y-6 mt-12">
-            {/* Call to Action Footer */}
             <Card className="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 border-primary/20">
                 <CardContent className="text-center py-8 md:py-12">
                     <div className="space-y-4 md:space-y-6">

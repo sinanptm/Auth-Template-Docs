@@ -1,0 +1,8 @@
+# robots.txt file for your website
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /dashboard/
+Disallow: /user-profile/
+
+Sitemap: https://full-stack-clean-auth-template.vercel.app/sitemap.xml

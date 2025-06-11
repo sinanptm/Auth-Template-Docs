@@ -1,33 +1,36 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Full-Stack Authentication Template | Clean Architecture",
-  description: "Production-ready full-stack authentication template built with Next.js 15, Express.js 5, MongoDB, and TypeScript. Features clean architecture, complete auth system with email/password, OAuth, OTP verification, and admin panel.",
+  title: "Full-Stack Auth Template | Next.js & Express Authentication System",
+  description: "Production-ready full-stack auth template with Next.js 15, Express, MongoDB. Features JWT, OAuth, email verification, OTP, RBAC, and clean architecture for rapid development.",
   keywords: [
-    "Next.js",
-    "Express.js",
-    "MongoDB",
-    "TypeScript",
-    "Authentication",
-    "Clean Architecture",
-    "Full-Stack Template",
-    "OAuth",
-    "JWT",
-    "OTP Verification",
-    "Admin Panel",
-    "React",
-    "Node.js",
-    "Firebase Auth",
-    "Production Ready"
+    "Full-Stack Auth Template",
+    "Authentication System",
+    "Next.js Authentication Template",
+    "Express.js Auth Template",
+    "Clean Architecture Auth",
+    "TypeScript Auth Template",
+    "Email OTP Verification",
+    "Production Auth System",
+    "Full-Stack Authentication Template",
+    "User Management System"
   ],
-  authors: [{ name: "Muhammed sinan", url: "https://www.muhammedsinan.space/" }],
-  creator: "Muhammed sinan",
-  publisher: "Your Company",
-  category: "Technology",
-  classification: "Web Development Template",
+  authors: [{ name: "Muhammed Sinan", url: "https://www.muhammedsinan.space/" }],
+  creator: "Muhammed Sinan",
+  publisher: "Muhammed Sinan",
+  applicationName: "Full-Stack Auth Template",
+  category: "Web Development",
+  classification: "Authentication System Template",
+  formatDetection: {
+    telephone: false,
+  },
+  alternates: {
+    canonical: "https://full-stack-clean-auth-template.vercel.app",
+  },
   openGraph: {
-    title: "Full-Stack Authentication Template | Clean Architecture",
-    description: "Production-ready authentication system with Next.js 15, Express.js 5, and clean architecture principles. Complete with OAuth, OTP verification, and admin management.",
+    title: "Full-Stack Auth Template | Complete Authentication System",
+    description: "Production-ready authentication template with Next.js 15 & Express. Features email/password login, OAuth, OTP verification, JWT, RBAC, and clean architecture.",
+    url: "https://full-stack-clean-auth-template.vercel.app",
     type: "website",
     locale: "en_US",
     siteName: "Full-Stack Auth Template",
@@ -42,14 +45,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Full-Stack Authentication Template | Clean Architecture",
-    description: "Production-ready auth system with Next.js 15, Express.js 5, MongoDB & TypeScript. Features clean architecture, OAuth, OTP verification & admin panel.",
+    title: "Full-Stack Auth Template | Next.js & Express Authentication",
+    description: "Complete authentication system with Next.js 15, Express & MongoDB. Features JWT, OAuth, email verification, OTP & admin dashboard.",
     images: ["/og-image.png"],
-    creator: "@sinanptm"
+    creator: "@sinanptm",
+    site: "@sinanptm"
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -57,6 +62,15 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  metadataBase: new URL("https://full-stack-clean-auth-template.vercel.app"),
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  verification: {
+    google: "google332e521595495b52.html"
   },
   other: {
     "application-name": "Full-Stack Auth Template",
