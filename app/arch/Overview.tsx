@@ -1,7 +1,8 @@
 import { memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Layers, Lock, Settings, Shield, Users, Zap } from "lucide-react";
+import { Layers, Lock, Settings, Shield, Users, Zap } from "lucide-react";
 import Customize from "./Customize";
+import Inspiration from "./Inspiration";
 
 const Overview = () => {
     return (
@@ -127,6 +128,8 @@ const Overview = () => {
                     </div>
                 </CardContent>
             </Card>
+
+            <Inspiration />
         </div>
     );
 };
