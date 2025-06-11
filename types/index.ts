@@ -20,3 +20,20 @@ export interface IUser {
   readonly createdAt?: DateString;
   readonly profile?: string;
 }
+
+
+export interface FolderInfo {
+  name: string;
+  purpose: string;
+  description: string;
+  fileTypes: string[];
+  layer: string;
+  examples: string[];
+  keyFeatures?: string[];
+  dependencies?: string[];
+  codeExample?: {
+    filename: string;
+    code: string;
+    description: string;
+  };
+}

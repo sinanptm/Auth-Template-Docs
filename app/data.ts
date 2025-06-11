@@ -1,18 +1,4 @@
-export interface FolderInfo {
-    name: string;
-    purpose: string;
-    description: string;
-    fileTypes: string[];
-    layer: string;
-    examples: string[];
-    keyFeatures?: string[];
-    dependencies?: string[];
-    codeExample?: {
-        filename: string;
-        code: string;
-        description: string;
-    };
-}
+import { FolderInfo } from "@/types";
 
 export const folderData: Record<string, FolderInfo> = {
     src: {
