@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Layers, Lock, Settings, Shield, Users, Zap } from "lucide-react";
+import Customize from "./Customize";
 
 const Overview = () => {
     return (
@@ -91,52 +92,8 @@ const Overview = () => {
                 </Card>
             </div>
 
-            <Card>
-                <CardHeader className="p-4 md:p-6">
-                    <CardTitle className="text-lg md:text-xl">🎯 Why This Template is Perfect for Customization</CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 space-y-4">
-                    <div>
-                        <h4 className="font-semibold mb-2 text-sm md:text-base">🏛️ Clean Architecture Benefits</h4>
-                        <ul className="space-y-1 text-xs md:text-sm text-muted-foreground">
-                            <li>
-                                • <strong>Separation of Concerns:</strong> Each layer has a single responsibility
-                            </li>
-                            <li>
-                                • <strong>Dependency Inversion:</strong> Abstractions don't depend on details
-                            </li>
-                            <li>
-                                • <strong>Testable Code:</strong> Business logic is independent of frameworks
-                            </li>
-                            <li>
-                                • <strong>Framework Independence:</strong> Core logic isn't tied to Express.js or Next.js
-                            </li>
-                        </ul>
-                    </div>
+            <Customize />
 
-                    <div>
-                        <h4 className="font-semibold mb-2 text-sm md:text-base">🔄 Easy Feature Management</h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs md:text-sm">
-                            <div className="flex items-start gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
-                                <span>Add new user role → Add entity + use case + controller</span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
-                                <span>Different OAuth provider → Implement new service</span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
-                                <span>Switch database → Replace repository implementation</span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
-                                <span>Add notifications → Create new service and inject</span>
-                            </div>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
             <Card>
                 <CardHeader className="p-4 md:p-6">
                     <CardTitle className="text-lg md:text-xl">🛡️ Security Features</CardTitle>
