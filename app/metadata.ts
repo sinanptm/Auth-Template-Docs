@@ -22,9 +22,6 @@ export const metadata: Metadata = {
   icons: "favicon.png",
   category: "Web Development",
   classification: "Authentication System Template",
-  formatDetection: {
-    telephone: false,
-  },
   alternates: {
     canonical: "https://full-stack-clean-auth-template.vercel.app",
   },
@@ -66,14 +63,5 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://full-stack-clean-auth-template.vercel.app"),
   verification: {
     google: "google332e521595495b52.html"
-  },
-  other: {
-    "application-name": "Full-Stack Auth Template",
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "default",
-    "apple-mobile-web-app-title": "Auth Template",
-    "mobile-web-app-capable": "yes",
-    "msapplication-TileColor": "#2B5797",
-    "msapplication-tap-highlight": "no",
-  },
+  }
 };
