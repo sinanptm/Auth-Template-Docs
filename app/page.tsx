@@ -84,7 +84,7 @@ const ArchitecturePage = () => {
                             </div>
 
                             <h1 className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                                🚀 Full-Stack Authentication Template
+                                <span className="text-amber-50">🚀</span> Full-Stack Authentication Template
                             </h1>
 
                             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
