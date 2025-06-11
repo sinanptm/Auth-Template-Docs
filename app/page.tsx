@@ -33,7 +33,7 @@ const ArchitecturePage = () => {
     }, [])
 
     const tabItems = [
-        { value: "overview", label: "Overview" },
+        { value: "overview", label: "Template Overview" },
         { value: "backend", label: "Backend" },
         { value: "frontend", label: "Frontend" },
         { value: "testing", label: "Testing" },
