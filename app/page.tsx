@@ -75,14 +75,6 @@ const ArchitecturePage = () => {
                 <div className="container mx-auto px-4 py-8 md:py-12 relative">
                     <div className="text-center space-y-4 md:space-y-6">
                         <div className="space-y-3">
-                            <div className="flex items-center justify-center gap-2 mb-3">
-                                <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                                <Badge variant="outline" className="text-xs font-medium">
-                                    Clean Architecture Template
-                                </Badge>
-                                <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                            </div>
-
                             <h1 className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                                 <span className="text-amber-50">🚀</span> Full-Stack Authentication Template
                             </h1>
