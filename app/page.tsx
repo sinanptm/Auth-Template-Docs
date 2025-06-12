@@ -4,7 +4,7 @@ import { memo, useState, useEffect } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Footer from "./arch/Footer";
+import Footer from "./Footer";
 import Overview from "./arch/Overview";
 import Backend from "./arch/Backend";
 import Frontend from "./arch/Frontend";
