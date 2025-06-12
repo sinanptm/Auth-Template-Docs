@@ -64,7 +64,7 @@ const EndpointCard = ({
                 <div className="flex items-center gap-2">
                     <Shield className="h-4 w-4" />
                     <span className="font-medium">Auth Required:</span>
-                    <Badge variant={auth ? "destructive" : "secondary"} className="text-xs">
+                    <Badge variant={auth ? "default" : "secondary"} className="text-xs">
                         {auth ? "Yes" : "No"}
                     </Badge>
                 </div>
