@@ -15,6 +15,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import Testing from "./arch/Testing";
 import { useQueryState } from "nuqs"
 import ApiDocs from "./arch/ApiDocs";
+import Link from "next/link";
 
 const ArchitecturePage = () => {
     const [activeTab, setActiveTab] = useQueryState("tab", { defaultValue: "overview" });
@@ -173,7 +174,7 @@ const ArchitecturePage = () => {
                             <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                 <Code2 aria-hidden className="w-4 h-4" />
-                                <span>Open Source </span>
+                                <span>Open Source <Link href={'https://github.com/sinanptm/fullstack-clean-auth-template/blob/main/LICENSE'} className="text-blue-500">(MIT License)</Link></span>
                             </div>
                         </div>
                     </div>
