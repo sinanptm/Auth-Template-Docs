@@ -102,7 +102,7 @@ const ArchitecturePage = () => {
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2"
                                 >
-                                    <Github className="w-4 h-4" />
+                                    <Github aria-hidden className="w-4 h-4" />
                                     <span>View on GitHub</span>
                                     <ExternalLink className="w-3 h-3" />
                                 </a>
@@ -119,7 +119,7 @@ const ArchitecturePage = () => {
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2"
                                 >
-                                    <Star className="w-4 h-4" />
+                                    <Star aria-hidden className="w-4 h-4" />
                                     <span>Give it a Star</span>
                                 </a>
                             </Button>
@@ -162,18 +162,13 @@ const ArchitecturePage = () => {
                         {/* Architecture Highlight */}
                         <div className="flex items-center justify-center gap-4 pt-2">
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                <GitBranch className="w-4 h-4" />
+                                <GitBranch aria-hidden className="w-4 h-4" />
                                 <span>Clean Architecture</span>
                             </div>
                             <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                <Star className="w-4 h-4" />
+                                <Star aria-hidden className="w-4 h-4" />
                                 <span>Industry Best Practices</span>
-                            </div>
-                            <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                <span>🧪</span>
-                                <span>Battle Tested</span>
                             </div>
                         </div>
                     </div>
