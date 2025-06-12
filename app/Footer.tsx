@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { memo, useState } from "react";
 //@ts-ignore
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-//@ts-ignore
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { Copy, Check } from "lucide-react";
 
@@ -87,7 +85,7 @@ pnpm run dev`;
                                     <Button
                                         variant="ghost"
                                         size="sm"
-                                        className="absolute top-2 right-2 text-gray-100 hover:bg-gray-700"
+                                        className="absolute top-2 right-2 text-gray-100 hover:bg-gray-700 cursor-pointer"
                                         onClick={handleCopy}
                                     >
                                         {copied ? (
@@ -122,7 +120,7 @@ pnpm run dev`;
                                 </div>
                             </div>
                             <p className="text-[0.65rem] md:text-xs text-muted-foreground">
-                                Crafted with ❤️ by <Link href={'https://www.muhammedsinan.space'} className="text-blue-400">Sinan</Link>. Inspired by developer community best practices.
+                                Crafted with ❤️ by <Link href={'https://www.muhammedsinan.space'} prefetch={true} target="_blank" className="text-blue-400">Sinan</Link>. Inspired by developer community best practices.
                             </p>
                         </div>
                     </div>
