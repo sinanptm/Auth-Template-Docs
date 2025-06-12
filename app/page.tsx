@@ -10,7 +10,7 @@ import Backend from "./arch/Backend";
 import Frontend from "./arch/Frontend";
 import AuthFlow from "./arch/AuthFlow";
 import TechStack from "./arch/TechStack";
-import { ChevronDown, Star, GitBranch, Github, ExternalLink } from "lucide-react";
+import { ChevronDown, Star, GitBranch, Github, ExternalLink, Code2 } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import Testing from "./arch/Testing";
 import { useQueryState } from "nuqs"
@@ -84,7 +84,7 @@ const ArchitecturePage = () => {
                             </h1>
 
                             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                                Production-ready full-stack template with clean architecture and complete authentication system.
+                                Production-ready, <span className="font-semibold text-teal-400  decoration-teal-400/50">open-source</span> full-stack template with clean architecture and complete authentication system.
                             </p>
                         </div>
 
@@ -169,6 +169,11 @@ const ArchitecturePage = () => {
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                 <Star aria-hidden className="w-4 h-4" />
                                 <span>Industry Best Practices</span>
+                            </div>
+                            <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                <Code2 aria-hidden className="w-4 h-4" />
+                                <span>Open Source </span>
                             </div>
                         </div>
                     </div>
