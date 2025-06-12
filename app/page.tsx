@@ -14,6 +14,7 @@ import { ChevronDown, Star, GitBranch, Github, ExternalLink } from "lucide-react
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import Testing from "./arch/Testing";
 import { useQueryState } from "nuqs"
+import ApiDocs from "./arch/ApiDocs";
 
 const ArchitecturePage = () => {
     const [activeTab, setActiveTab] = useQueryState("tab", { defaultValue: "overview" });
@@ -38,6 +39,7 @@ const ArchitecturePage = () => {
         { value: "frontend", label: "Frontend" },
         { value: "testing", label: "Testing" },
         { value: "auth-flow", label: "Auth Flow" },
+        { value: "api-docs", label: "Api Docs" },
         { value: "tech-stack", label: "Tech Stack" },
     ]
 
@@ -53,6 +55,8 @@ const ArchitecturePage = () => {
                 return <Testing />;
             case "auth-flow":
                 return <AuthFlow />;
+            case "api-docs":
+                return <ApiDocs />;
             case "tech-stack":
                 return <TechStack />;
             default:
@@ -199,7 +203,7 @@ const ArchitecturePage = () => {
                     </div>
                 ) : (
                     <Tabs value={activeTab!} onValueChange={setActiveTab} className="space-y-8">
-                            <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-12 p-1 bg-muted/50">
+                            <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-7 h-12 p-1 bg-muted/50">
                                 {tabItems.map((tab) => (
                                   <TabsTrigger
                                       key={tab.value}
