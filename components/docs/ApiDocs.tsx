@@ -4,7 +4,7 @@ import AuthHeaders from "./AuthHeaders";
 import ErrorResponses from "./ErrorResponses";
 import SectionCard from "./SectionCard";
 import { Database, User, Settings, Shield, Users } from "lucide-react";
-import { USER_AUTH, ADMIN_AUTH, ADMIN_USER, USER_PROFILE } from "../api";
+import { USER_AUTH, ADMIN_AUTH, ADMIN_USER, USER_PROFILE } from "@/constants/api";
 import {
     Accordion,
     AccordionContent,

@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import BackendFolder from "./BackendFolder";
-import { architectureLayers } from "../data";
+import { architectureLayers } from "@/constants/backend";
 
 const Backend = () => {
     const getLayerColor = (layer: string) => {
