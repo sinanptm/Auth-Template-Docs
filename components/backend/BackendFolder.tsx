@@ -19,28 +19,6 @@ const BackendFolder = ({ getLayerColor }: any) => {
         setSelectedFolder(folderKey);
     };
 
-    const customStyle = {
-        ...vscDarkPlus,
-        'pre[class*="language-"]': {
-            ...vscDarkPlus['pre[class*="language-"]'],
-            background: "#1e1e1e",
-            margin: 0,
-            padding: "12px",
-            fontSize: "11px",
-            lineHeight: "1.4",
-            fontFamily:
-                "'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace",
-        },
-        'code[class*="language-"]': {
-            ...vscDarkPlus['code[class*="language-"]'],
-            background: "#1e1e1e",
-            fontSize: "11px",
-            lineHeight: "1.4",
-            fontFamily:
-                "'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace",
-        },
-    };
-
     const selectedData = folderData[selectedFolder!];
 
     return (
@@ -288,7 +266,7 @@ const BackendFolder = ({ getLayerColor }: any) => {
                                         <div className="overflow-x-auto">
                                             <SyntaxHighlighter
                                                 language="typescript"
-                                                style={customStyle}
+                                                style={vscDarkPlus}
                                                 customStyle={{
                                                     margin: 0,
                                                     background: "#1e1e1e",

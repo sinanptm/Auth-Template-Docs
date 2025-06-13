@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Footer from "../components/Footer";
 import Overview from "@/components/overview/Overview";
 import Backend from "@/components/backend/Backend";
-import Frontend from "@/components/next-web/Frontend";
+import Frontend from "@/components/web-next/Frontend";
 import TechStack from "@/components/tech-stack/TechStack";
 import { ChevronDown } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
