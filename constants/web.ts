@@ -16,7 +16,7 @@ export interface FrontendFolderInfo {
   };
 }
 
-export const frontendFolderData: Record<string, FrontendFolderInfo> = {
+export const webFolderData: Record<string, FrontendFolderInfo> = {
   app: {
     name: "app",
     purpose: "Next.js 15 App Router with Authentication Layouts",
@@ -494,7 +494,7 @@ initializeApp(firebaseConfig);`,
 
 
 
-export const frontendCategories = {
+export const webCategories = {
   "Routing & Pages": {
     description: "Next.js 15 App Router with authentication layouts",
     folders: ["app"],

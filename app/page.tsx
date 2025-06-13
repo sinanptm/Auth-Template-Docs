@@ -4,8 +4,8 @@ import { memo } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Footer from "../components/Footer";
 import Overview from "@/components/overview/Overview";
-import Backend from "@/components/backend/Backend";
-import Frontend from "@/components/web-next/Frontend";
+import Server from "@/components/server/Server";
+import Frontend from "@/components/web/Web";
 import TechStack from "@/components/tech-stack/TechStack";
 import { ChevronDown } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -21,8 +21,8 @@ const ArchitecturePage = () => {
 
     const tabItems = [
         { value: "overview", label: "Template Overview" },
-        { value: "backend", label: "Backend" },
-        { value: "web-next", label: "Web NextJs" },
+        { value: "server", label: "Server" },
+        { value: "web-next", label: "Web" },
         { value: "testing", label: "Testing" },
         { value: "api-docs", label: "Api Docs" },
         { value: "tech-stack", label: "Tech Stack" },
@@ -32,8 +32,8 @@ const ArchitecturePage = () => {
         switch (activeTab) {
             case "overview":
                 return <Overview />;
-            case "backend":
-                return <Backend />;
+            case "server":
+                return <Server />;
             case "web-next":
                 return <Frontend />;
             case "testing":

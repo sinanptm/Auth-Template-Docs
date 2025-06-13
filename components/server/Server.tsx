@@ -1,10 +1,10 @@
 import { memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import BackendFolder from "./BackendFolder";
-import { architectureLayers } from "@/constants/backend";
+import BackendFolder from "./ServerFolder";
+import { architectureLayers } from "@/constants/server";
 
-const Backend = () => {
+const Server = () => {
     const getLayerColor = (layer: string) => {
         switch (layer) {
             case "Domain":
@@ -67,4 +67,4 @@ const Backend = () => {
     );
 };
 
-export default memo(Backend);
+export default memo(Server);

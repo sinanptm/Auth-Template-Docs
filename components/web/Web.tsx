@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import FrontendFolder from "./FrontendFolder";
+import WebFolder from "./WebFolder";
 
-const Frontend = () => {
+const Web = () => {
     return (
         <div className="space-y-6">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -47,7 +47,7 @@ const Frontend = () => {
                 </Card>
             </div>
 
-            <FrontendFolder />
+            <WebFolder />
 
             <Card>
                 <CardHeader className="p-4 md:p-6">
@@ -134,4 +134,4 @@ const Frontend = () => {
     );
 };
 
-export default memo(Frontend);
+export default memo(Web);

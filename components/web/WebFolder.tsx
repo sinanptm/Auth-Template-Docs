@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { frontendFolderData, frontendCategories } from "@/constants/web-next";
+import { webFolderData, webCategories } from "@/constants/web";
 //@ts-ignore
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 //@ts-ignore
@@ -10,11 +10,11 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { useQueryState } from "nuqs";
 import { memo } from "react";
 
-interface FrontendFolderProps {
+interface WebFolderProps {
     getCategoryColor?: (category: string) => string;
 }
 
-const FrontendFolder = ({ getCategoryColor }: FrontendFolderProps) => {
+const WebFolder = ({ getCategoryColor }: WebFolderProps) => {
     const [selectedFolder, setSelectedFolder] = useQueryState("frontend", { defaultValue: "app" });
 
     const handleFolderClick = (folderKey: string) => {
@@ -22,12 +22,12 @@ const FrontendFolder = ({ getCategoryColor }: FrontendFolderProps) => {
     };
 
     const getDefaultCategoryColor = (category: string) => {
-        const categoryInfo = Object.values(frontendCategories).find((cat) => cat.folders.includes(selectedFolder));
+        const categoryInfo = Object.values(webCategories).find((cat) => cat.folders.includes(selectedFolder));
         return categoryInfo?.color || "bg-slate-900 text-slate-200";
     };
 
 
-    const selectedData = frontendFolderData[selectedFolder];
+    const selectedData = webFolderData[selectedFolder];
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -293,4 +293,4 @@ const FrontendFolder = ({ getCategoryColor }: FrontendFolderProps) => {
     );
 };
 
-export default memo(FrontendFolder);
+export default memo(WebFolder);

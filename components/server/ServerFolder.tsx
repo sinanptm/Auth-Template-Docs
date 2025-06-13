@@ -3,23 +3,21 @@
 import { memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { folderData } from "@/constants/backend";
+import { serverFolderData } from "@/constants/server";
 //@ts-ignore
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 //@ts-ignore
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { useQueryState } from 'nuqs';
 
-
-
-const BackendFolder = ({ getLayerColor }: any) => {
+const ServerFolder = ({ getLayerColor }: any) => {
     const [selectedFolder, setSelectedFolder] = useQueryState("backend", { defaultValue: "src" });
 
     const handleFolderClick = (folderKey: string) => {
         setSelectedFolder(folderKey);
     };
 
-    const selectedData = folderData[selectedFolder!];
+    const selectedData = serverFolderData[selectedFolder!];
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -302,4 +300,4 @@ const BackendFolder = ({ getLayerColor }: any) => {
     );
 };
 
-export default memo(BackendFolder);
+export default memo(ServerFolder);
