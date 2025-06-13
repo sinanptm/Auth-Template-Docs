@@ -1,10 +1,40 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Database, Globe, Server } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+//@ts-ignore
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+//@ts-ignore
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Button } from "@/components/ui/button";
+import { Copy } from "lucide-react";
 
 const TechStack = () => {
+    const [copied, setCopied] = useState({ dev: "", prod: "" });
+
+    const copyToClipboard = (text: string, section: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setCopied((prev) => ({ ...prev, [section]: text }));
+            setTimeout(() => setCopied((prev) => ({ ...prev, [section]: "" })), 2000);
+        });
+    };
+
+    const devCommands = `
+pnpm dev # Start both servers
+pnpm --prefix server dev # Backend only
+pnpm --prefix web dev # Frontend only
+pnpm format # Format code
+pnpm test # Run tests
+  `.trim();
+
+    const prodCommands = `
+pnpm test # Run tests
+pnpm --prefix server test # Run tests
+pnpm --prefix server build # Build backend
+pnpm --prefix web build # Build frontend
+pnpm --prefix server start # Start production
+  `.trim();
     return (
         <div className="space-y-6">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -185,43 +215,59 @@ const TechStack = () => {
 
             <Card>
                 <CardHeader className="p-4 md:p-6">
-                    <CardTitle className="text-lg md:text-xl">🚀 Development & Deployment</CardTitle>
+                    <CardTitle className="text-lg md:text-xl text-muted-foreground">🚀 Development & Deployment</CardTitle>
                 </CardHeader>
                 <CardContent className="p-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         <div>
-                            <h4 className="font-semibold mb-2 md:mb-3 text-sm md:text-base">Development Commands</h4>
-                            <div className="space-y-2 text-xs md:text-sm font-mono bg-muted p-2 md:p-3 rounded-lg overflow-x-auto">
-                                <div className="whitespace-nowrap">
-                                    pnpm dev <span className="text-muted-foreground"># Start both servers</span>
-                                </div>
-                                <div className="whitespace-nowrap">
-                                    pnpm --prefix server dev <span className="text-muted-foreground"># Backend only</span>
-                                </div>
-                                <div className="whitespace-nowrap">
-                                    pnpm --prefix web dev <span className="text-muted-foreground"># Frontend only</span>
-                                </div>
-                                <div className="whitespace-nowrap">
-                                    pnpm format <span className="text-muted-foreground"># Format code</span>
-                                </div>
+                            <div className="flex justify-between items-center mb-2 md:mb-3">
+                                <h4 className="font-semibold text-sm md:text-base text-muted-foreground">Development Commands</h4>
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => copyToClipboard(devCommands, "dev")}
+                                    className="text-xs cursor-pointer"
+                                >
+                                    {copied.dev === devCommands ? "Copied!" : <Copy className="h-4 w-4" />}
+                                </Button>
                             </div>
+                            <SyntaxHighlighter
+                                language="bash"
+                                style={vscDarkPlus}
+                                customStyle={{
+                                    padding: "12px",
+                                    borderRadius: "8px",
+                                    fontSize: "0.75rem",
+                                    lineHeight: "1.5",
+                                }}
+                            >
+                                {devCommands}
+                            </SyntaxHighlighter>
                         </div>
                         <div>
-                            <h4 className="font-semibold mb-2 md:mb-3 text-sm md:text-base">Production Commands</h4>
-                            <div className="space-y-2 text-xs md:text-sm font-mono bg-muted p-2 md:p-3 rounded-lg overflow-x-auto">
-                                <div className="whitespace-nowrap">
-                                    pnpm --prefix server build <span className="text-muted-foreground"># Build backend</span>
-                                </div>
-                                <div className="whitespace-nowrap">
-                                    pnpm --prefix web build <span className="text-muted-foreground"># Build frontend</span>
-                                </div>
-                                <div className="whitespace-nowrap">
-                                    pnpm --prefix server start <span className="text-muted-foreground"># Start production</span>
-                                </div>
-                                <div className="whitespace-nowrap">
-                                    pnpm --prefix server test <span className="text-muted-foreground"># Run tests</span>
-                                </div>
+                            <div className="flex justify-between items-center mb-2 md:mb-3">
+                                <h4 className="font-semibold text-sm md:text-base text-muted-foreground">Production Commands</h4>
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => copyToClipboard(prodCommands, "prod")}
+                                    className="text-xs cursor-pointer"
+                                >
+                                    {copied.prod === prodCommands ? "Copied!" : <Copy className="h-4 w-4" />}
+                                </Button>
                             </div>
+                            <SyntaxHighlighter
+                                language="bash"
+                                style={vscDarkPlus}
+                                customStyle={{
+                                    padding: "12px",
+                                    borderRadius: "8px",
+                                    fontSize: "0.75rem",
+                                    lineHeight: "1.5",
+                                }}
+                            >
+                                {prodCommands}
+                            </SyntaxHighlighter>
                         </div>
                     </div>
                 </CardContent>

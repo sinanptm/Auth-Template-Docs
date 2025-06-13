@@ -4,58 +4,12 @@ import Link from "next/link";
 import { memo, useState } from "react";
 //@ts-ignore
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+//@ts-ignore
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Copy, Check } from "lucide-react";
 
 const Footer = () => {
     const [copied, setCopied] = useState(false);
-
-    const draculaTheme = {
-        'pre[class*="language-"]': {
-            background: "#282a36",
-            margin: 0,
-            padding: "20px",
-            fontSize: "14px",
-            lineHeight: "1.6",
-            fontFamily:
-                "'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace",
-            borderRadius: "0.5rem",
-        },
-        'code[class*="language-"]': {
-            background: "#282a36",
-            color: "#f8f8f2",
-            fontSize: "14px",
-            lineHeight: "1.6",
-            fontFamily:
-                "'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace",
-        },
-        'token.comment': {
-            color: "#8be9fd",
-            fontStyle: "italic",
-        },
-        'token.string': {
-            color: "#f1fa8c",
-        },
-        'token.keyword': {
-            color: "#ff5555",
-            fontWeight: "bold",
-        },
-        'token.function': {
-            color: "#50fa7b",
-        },
-        'token.parameter': {
-            color: "#ffb86c",
-        },
-        'token.punctuation': {
-            color: "#bd93f9",
-        },
-        'token.operator': {
-            color: "#ff79c6",
-        },
-        'token.builtin': {
-            color: "#f1fa8c",
-        },
-    };
-
 
     const setupCode = `git clone https://github.com/sinanptm/fullstack-clean-auth-template.git
 cd fullstack-clean-auth-template
@@ -97,7 +51,7 @@ pnpm run dev`;
                                     <div className="overflow-x-auto">
                                         <SyntaxHighlighter
                                             language="bash"
-                                            style={draculaTheme}
+                                            style={vscDarkPlus}
                                             customStyle={{
                                                 margin: 0,
                                                 background: "#1e1e1e",
