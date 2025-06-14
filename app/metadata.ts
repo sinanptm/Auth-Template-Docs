@@ -4,16 +4,14 @@ export const metadata: Metadata = {
   title: "Full-Stack Auth Template | Next.js & Express Authentication System",
   description: "Production-ready full-stack auth template with Next.js 15, Express, MongoDB. Features JWT, OAuth, email verification, OTP, RBAC, and clean architecture for rapid development.",
   keywords: [
-    "Full-Stack Auth Template",
+    "Fullstack Clean Auth Template",
+    "Fullstack Authentication Template",
     "Authentication System",
-    "Next.js Authentication Template",
-    "Express.js Auth Template",
-    "Clean Architecture Auth",
-    "TypeScript Auth Template",
-    "Email OTP Verification",
-    "Production Auth System",
-    "Full-Stack Authentication Template",
-    "User Management System"
+    "Next.js Node.js Authentication Template",
+    "Express.js Authentication Template",
+    "Clean Architecture Authentication Template",
+    "TypeScript Authentication Template",
+    "Production Authentication System"
   ],
   authors: [{ name: "Muhammed Sinan", url: "https://www.muhammedsinan.space/" }],
   creator: "Muhammed Sinan",
