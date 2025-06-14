@@ -1,20 +1,32 @@
 import { mainFont } from "@/lib/fonts";
 import { WrapperProps } from "@/types";
 import "@/styles/globals.css";
-import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { memo, Suspense } from "react";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next";
+import { schemas } from "./schema";
 
 export { metadata } from "./metadata";
 
 const RootLayout = ({ children }: WrapperProps) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${mainFont.className} antialiased `}>
+      <body className={`${mainFont.className} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                schemas.website,
+                schemas.webApplication,
+                schemas.softwareSourceCode
+              ]
+            })
+          }}
+        />
         <NuqsAdapter>
-          <Suspense>
-            {children}
-          </Suspense>
+          <Suspense>{children}</Suspense>
           <Analytics />
         </NuqsAdapter>
       </body>
