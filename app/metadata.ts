@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   applicationName: "Full-Stack Auth Template",
   category: "Web Development",
   classification: "Authentication System Template",
+  metadataBase: new URL("https://full-stack-clean-auth-template.vercel.app"),
   alternates: {
     canonical: "https://full-stack-clean-auth-template.vercel.app",
   },
@@ -26,12 +27,16 @@ export const metadata: Metadata = {
     title: "Full-Stack Auth Template | Complete Authentication System",
     description: "Production-ready authentication template with Next.js 15 & Express. Features email/password login, OAuth, OTP verification, JWT, RBAC, and clean architecture.",
     type: "website",
+    url: "https://full-stack-clean-auth-template.vercel.app",
     locale: "en_US",
     siteName: "Full-Stack Auth Template",
     images: [
       {
-        url: "https://full-stack-clean-auth-template.vercel.app/og-image.png",
-        alt: "Full-Stack Authentication Template Architecture Overview"
+        url: "/og-image.png", // Use relative path when metadataBase is set
+        width: 1200,
+        height: 630,
+        alt: "Full-Stack Authentication Template Architecture Overview",
+        type: "image/png"
       }
     ]
   },
@@ -39,7 +44,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Full-Stack Auth Template | Next.js & Express Authentication",
     description: "Complete authentication system with Next.js 15, Express & MongoDB. Features JWT, OAuth, email verification, OTP & admin dashboard.",
-    images: ["https://full-stack-clean-auth-template.vercel.app/og-image.png"],
+    images: [
+      {
+        url: "/og-image.png", // Use relative path
+        width: 1200,
+        height: 630,
+        alt: "Full-Stack Authentication Template"
+      }
+    ],
     creator: "@sinanptm",
     site: "@sinanptm"
   },
@@ -52,7 +64,6 @@ export const metadata: Metadata = {
       follow: true
     },
   },
-  metadataBase: new URL("https://full-stack-clean-auth-template.vercel.app"),
   verification: {
     google: "google332e521595495b52.html"
   }
