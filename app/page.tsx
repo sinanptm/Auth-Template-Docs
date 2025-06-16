@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { memo } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -10,23 +10,25 @@ import TechStack from "@/components/tech-stack/TechStack";
 import { ChevronDown } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import Testing from "@/components/testing/Testing";
-import { useQueryState } from "nuqs"
+import { useQueryState } from "nuqs";
 import ApiDocs from "@/components/docs/ApiDocs";
 import useMobile from "@/lib/useMobile";
 import Header from "../components/Header";
+import CiCdDocs from "@/components/ci-cd/CiCdDocs";
 
 const ArchitecturePage = () => {
     const [activeTab, setActiveTab] = useQueryState("tab", { defaultValue: "overview" });
-    const { isMobile } = useMobile()
+    const { isMobile } = useMobile();
 
     const tabItems = [
         { value: "overview", label: "Template Overview" },
         { value: "server", label: "Server" },
         { value: "web-next", label: "Web" },
         { value: "testing", label: "Testing" },
+        { value: "ci-cd", label: "CI CD" },
         { value: "api-docs", label: "Api Docs" },
         { value: "tech-stack", label: "Tech Stack" },
-    ]
+    ];
 
     const renderTabContent = () => {
         switch (activeTab) {
@@ -38,6 +40,8 @@ const ArchitecturePage = () => {
                 return <Frontend />;
             case "testing":
                 return <Testing />;
+            case "ci-cd":
+                return <CiCdDocs />;
             case "api-docs":
                 return <ApiDocs />;
             case "tech-stack":
@@ -45,7 +49,7 @@ const ArchitecturePage = () => {
             default:
                 return <Overview />;
         }
-    }
+    };
 
     return (
         <div className="min-h-screen bg-background">
@@ -74,16 +78,16 @@ const ArchitecturePage = () => {
                     </div>
                 ) : (
                     <Tabs value={activeTab!} onValueChange={setActiveTab} className="space-y-8">
-                            <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-12 p-1 bg-muted/50">
+                            <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-7 h-12 p-1 bg-muted/50">
                                 {tabItems.map((tab) => (
-                                  <TabsTrigger
-                                      key={tab.value}
-                                      value={tab.value}
-                                      className="text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all"
-                                  >
-                                      {tab.label}
-                                  </TabsTrigger>
-                              ))}
+                                    <TabsTrigger
+                                        key={tab.value}
+                                        value={tab.value}
+                                        className="text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all"
+                                    >
+                                        {tab.label}
+                                    </TabsTrigger>
+                                ))}
                         </TabsList>
                     </Tabs>
                 )}
@@ -94,6 +98,6 @@ const ArchitecturePage = () => {
             </div>
         </div>
     );
-}
+};
 
 export default memo(ArchitecturePage);
