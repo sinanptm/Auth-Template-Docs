@@ -1,134 +1,90 @@
 import { memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Layers, Lock, Settings, Shield, Users, Zap } from "lucide-react";
+import { Bug, Layers, Lock, Settings, Shield, Zap } from "lucide-react";
 import Customize from "./Customize";
 import Inspiration from "./Inspiration";
+
+const features = [
+    {
+        Icon: Layers,
+        title: "Clean Architecture",
+        description: "Domain-driven structure with clear separation of concerns for effortless feature management.",
+    },
+    {
+        Icon: Settings,
+        title: "Highly Customizable",
+        description: "Modular components and services for seamless adaptation to specific needs.",
+    },
+    {
+        Icon: Shield,
+        title: "Complete Authentication",
+        description: "Email/Password with OTP, OAuth (Google, GitHub), Admin authentication, and role-based access control.",
+    },
+    {
+        Icon: Bug,
+        title: "CI/CD & Testing",
+        description: "Jest-powered testing with Clean Architecture for isolated unit tests and CI/CD pipelines for automated workflows.",
+    },
+    {
+        Icon: Zap,
+        title: "Modern Tech Stack",
+        description: "Next.js 15, Express.js 5, MongoDB, TypeScript, and Firebase OAuth for cutting-edge development.",
+    },
+    {
+        Icon: Lock,
+        title: "Security-First",
+        description: "JWT tokens, HTTP-only cookies, rate limiting, bcrypt hashing, and comprehensive validation.",
+    },
+];
+
+const securityFeatures = [
+    { title: "JWT Authentication", description: "Access & refresh tokens with automatic refresh.", color: "text-green-500" },
+    { title: "HTTP-Only Cookies", description: "Secure token storage to prevent XSS attacks.", color: "text-blue-400" },
+    { title: "Rate Limiting", description: "Protects against brute force attacks.", color: "text-orange-500" },
+    { title: "Password Hashing", description: "bcrypt with 10 rounds for secure storage.", color: "text-purple-400" },
+    { title: "Input Validation", description: "Joi schemas for robust endpoint validation.", color: "text-red-500" },
+    { title: "CORS Protection", description: "Configured origins and credentials handling.", color: "text-indigo-400" },
+];
 
 const Overview = () => {
     return (
         <div className="space-y-6">
+            {/* Feature Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                <Card>
-                    <CardHeader className="p-4 md:p-6">
-                        <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Layers aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
-                            Clean Architecture
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                        <p className="text-xs md:text-sm text-muted-foreground">
-                            Domain-driven structure makes adding/removing features effortless with clear separation of concerns.
-                        </p>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="p-4 md:p-6">
-                        <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Settings aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
-                            Highly Customizable
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                        <p className="text-xs md:text-sm text-muted-foreground">
-                            Modular components and services for easy adaptation to your specific needs.
-                        </p>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="p-4 md:p-6">
-                        <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Shield aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
-                            Complete Authentication
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                        <p className="text-xs md:text-sm text-muted-foreground">
-                            Email/Password with OTP verification, OAuth (Google, GitHub), and Admin authentication.
-                        </p>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="p-4 md:p-6">
-                        <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Users aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
-                            Role-Based Access
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                        <p className="text-xs md:text-sm text-muted-foreground">
-                            Secure user and admin roles with protected routes and middleware.
-                        </p>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="p-4 md:p-6">
-                        <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Zap aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
-                            Modern Tech Stack
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                        <p className="text-xs md:text-sm text-muted-foreground">
-                            Next.js 15, Express.js 5, MongoDB, TypeScript, Firebase OAuth for cutting-edge development.
-                        </p>
-                    </CardContent>
-                </Card>
-
-                <Card>
-                    <CardHeader className="p-4 md:p-6">
-                        <CardTitle className="flex items-center gap-2 text-sm md:text-base">
-                            <Lock aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
-                            Security-First
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-4">
-                        <p className="text-xs md:text-sm text-muted-foreground">
-                            JWT tokens, HTTP-only cookies, rate limiting, bcrypt hashing, and comprehensive validation.
-                        </p>
-                    </CardContent>
-                </Card>
+                {features.map(({ Icon, title, description }, index) => (
+                    <Card key={index} className="transition-shadow hover:shadow-md">
+                        <CardHeader className="p-3 md:px-5 md:py-2.5">
+                            <CardTitle className="flex items-center gap-2 text-sm md:text-base">
+                                <Icon aria-hidden="true" className="h-4 w-4 md:h-5 md:w-5" />
+                                {title}
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-4">
+                            <p className="text-xs md:text-sm text-muted-foreground">{description}</p>
+                        </CardContent>
+                    </Card>
+                ))}
             </div>
 
+            {/* Security Features */}
             <Card>
                 <CardHeader className="p-4 md:p-6">
                     <CardTitle className="text-lg md:text-xl">🛡️ Security Features</CardTitle>
                 </CardHeader>
                 <CardContent className="p-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                        <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-green-500 text-sm md:text-base">JWT Authentication</h4>
-                            <p className="text-xs md:text-sm text-muted-foreground">Access & refresh tokens with automatic refresh</p>
-                        </div>
-                        <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-blue-400 text-sm md:text-base">HTTP-Only Cookies</h4>
-                            <p className="text-xs md:text-sm text-muted-foreground">Secure token storage preventing XSS attacks</p>
-                        </div>
-                        <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-orange-500 text-sm md:text-base">Rate Limiting</h4>
-                            <p className="text-xs md:text-sm text-muted-foreground">Protection against brute force attacks</p>
-                        </div>
-                        <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-purple-400 text-sm md:text-base">Password Hashing</h4>
-                            <p className="text-xs md:text-sm text-muted-foreground">bcrypt with 10 rounds for secure storage</p>
-                        </div>
-                        <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-red-500 text-sm md:text-base">Input Validation</h4>
-                            <p className="text-xs md:text-sm text-muted-foreground">Comprehensive Joi schemas for all endpoints</p>
-                        </div>
-                        <div className="border rounded-lg p-3">
-                            <h4 className="font-semibold text-indigo-400 text-sm md:text-base">CORS Protection</h4>
-                            <p className="text-xs md:text-sm text-muted-foreground">Configured origins and credentials handling</p>
-                        </div>
+                        {securityFeatures.map(({ title, description, color }, index) => (
+                            <div key={index} className="border rounded-lg p-3">
+                                <h4 className={`font-semibold text-sm md:text-base ${color}`}>{title}</h4>
+                                <p className="text-xs md:text-sm text-muted-foreground">{description}</p>
+                            </div>
+                        ))}
                     </div>
                 </CardContent>
             </Card>
 
+            {/* External Components */}
             <Customize />
-
             <Inspiration />
         </div>
     );
