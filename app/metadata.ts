@@ -31,8 +31,6 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://full-stack-clean-auth-template.vercel.app/og-image.png",
-        width: 1200,
-        height: 630,
         alt: "Full-Stack Authentication Template Architecture Overview"
       }
     ]
@@ -41,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Full-Stack Auth Template | Next.js & Express Authentication",
     description: "Complete authentication system with Next.js 15, Express & MongoDB. Features JWT, OAuth, email verification, OTP & admin dashboard.",
-    images: ["/og-image.png"],
+    images: ["https://full-stack-clean-auth-template.vercel.app/og-image.png"],
     creator: "@sinanptm",
     site: "@sinanptm"
   },
@@ -51,10 +49,7 @@ export const metadata: Metadata = {
     nocache: false,
     googleBot: {
       index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      follow: true
     },
   },
   metadataBase: new URL("https://full-stack-clean-auth-template.vercel.app"),
