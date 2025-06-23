@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { memo } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -15,88 +15,92 @@ import ApiDocs from "@/components/docs/ApiDocs";
 import useMobile from "@/lib/useMobile";
 import Header from "../components/Header";
 import CiCdDocs from "@/components/ci-cd/CiCdDocs";
+import Installation from "@/components/installation/Installation"
 
 const ArchitecturePage = () => {
     const [activeTab, setActiveTab] = useQueryState("tab", { defaultValue: "overview" });
-    const { isMobile } = useMobile();
+    const { isMobile } = useMobile()
 
     const tabItems = [
-        { value: "overview", label: "Template Overview" },
-        { value: "server", label: "Server" },
-        { value: "web-next", label: "Web" },
-        { value: "testing", label: "Testing" },
-        { value: "ci-cd", label: "CI CD" },
-        { value: "api-docs", label: "Api Docs" },
-        { value: "tech-stack", label: "Tech Stack" },
-    ];
+      { value: "overview", label: "Overview" },
+      { value: "server", label: "Server" },
+      { value: "web-next", label: "Web" },
+      { value: "testing", label: "Testing" },
+      { value: "ci-cd", label: "CI/CD" },
+      { value: "api-docs", label: "API Docs" },
+      { value: "tech-stack", label: "Tech Stack" },
+      { value: "setup", label: "Setup" },
+  ]
 
     const renderTabContent = () => {
         switch (activeTab) {
             case "overview":
-                return <Overview />;
-            case "server":
-                return <Server />;
-            case "web-next":
-                return <Frontend />;
-            case "testing":
-                return <Testing />;
-            case "ci-cd":
-                return <CiCdDocs />;
-            case "api-docs":
-                return <ApiDocs />;
-            case "tech-stack":
-                return <TechStack />;
-            default:
-                return <Overview />;
-        }
-    };
+            return <Overview />;
+        case "server":
+            return <Server />;
+        case "web-next":
+            return <Frontend />;
+        case "testing":
+            return <Testing />;
+        case "ci-cd":
+            return <CiCdDocs />;
+        case "api-docs":
+            return <ApiDocs />;
+        case "setup":
+            return <Installation />;
+        case "tech-stack":
+            return <TechStack />;
+        default:
+            return <Overview />;
+    }
+  }
 
     return (
         <div className="min-h-screen bg-background">
             <Header />
 
-            <div className="container mx-auto px-4 py-6 md:py-8">
-                {isMobile ? (
-                    <div className="mb-6">
-                        <DropdownMenu>
-                            <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border rounded-md hover:border-primary/50 transition-colors">
-                                <span className="font-medium">{tabItems.find((tab) => tab.value === activeTab)?.label}</span>
-                                <ChevronDown className="h-4 w-4 opacity-50" />
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-full" align="start">
-                                {tabItems.map((tab) => (
-                                    <DropdownMenuItem
-                                        key={tab.value}
-                                        onClick={() => setActiveTab(tab.value)}
-                                        className={activeTab === tab.value ? "bg-muted" : ""}
-                                    >
-                                        {tab.label}
-                                    </DropdownMenuItem>
-                                ))}
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    </div>
-                ) : (
-                    <Tabs value={activeTab!} onValueChange={setActiveTab} className="space-y-8">
-                            <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-7 h-12 p-1 bg-muted/50">
-                                {tabItems.map((tab) => (
-                                    <TabsTrigger
-                                        key={tab.value}
-                                        value={tab.value}
-                                        className="text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all"
-                                    >
-                                        {tab.label}
-                                    </TabsTrigger>
-                                ))}
-                        </TabsList>
-                    </Tabs>
-                )}
+          <div className="container mx-auto px-4 py-6 md:py-8">
+              {isMobile ? (
+                  <div className="mb-6">
+                      <DropdownMenu>
+                          <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border rounded-md hover:border-primary/50 transition-colors">
+                              <span className="font-medium">{tabItems.find((tab) => tab.value === activeTab)?.label}</span>
+                              <ChevronDown className="h-4 w-4 opacity-50" />
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent className="w-full" align="start">
+                              {tabItems.map((tab) => (
+                                  <DropdownMenuItem
+                                      key={tab.value}
+                                      onClick={() => setActiveTab(tab.value)}
+                                      className={activeTab === tab.value ? "bg-muted" : ""}
+                                  >
+                                      {tab.label}
+                                  </DropdownMenuItem>
+                              ))}
+                          </DropdownMenuContent>
+                      </DropdownMenu>
+                  </div>
+              ) : (
+                  <Tabs value={activeTab!} onValueChange={setActiveTab} className="space-y-8">
+                      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-8 h-12 p-1 bg-muted/50">
+                          {tabItems.map((tab) => (
+                              <TabsTrigger
+                                  key={tab.value}
+                                  value={tab.value}
+                                  className="text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all"
+                              >
+                                  {tab.label}
+                              </TabsTrigger>
+                          ))}
+                      </TabsList>
+                  </Tabs>
+              )}
 
-                <div className="mt-8">{renderTabContent()}</div>
+              <div className="mt-8">{renderTabContent()}</div>
 
-                <Footer />
-            </div>
-        </div>
+              <Footer />
+          </div>
+      </div>
     );
 };
 
