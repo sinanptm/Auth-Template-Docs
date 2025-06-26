@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const metadataBase: Metadata = {
   title: "Full-Stack Auth Template | Next.js & Express Authentication System",
   description: "Production-ready full-stack auth template with Next.js 15, Express, MongoDB. Features JWT, OAuth, email verification, OTP, RBAC, and clean architecture for rapid development.",
   keywords: [

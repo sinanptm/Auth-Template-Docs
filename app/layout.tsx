@@ -5,8 +5,9 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { memo, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { schemas } from "./schema";
+import { metadataBase } from "./metadata";
 
-export { metadata } from "./metadata";
+export const metadata = metadataBase;
 
 const RootLayout = ({ children }: WrapperProps) => {
   return (
