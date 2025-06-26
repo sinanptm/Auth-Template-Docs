@@ -32,11 +32,10 @@ export const metadata: Metadata = {
     siteName: "Full-Stack Auth Template",
     images: [
       {
-        url: "/og-image.png", // Use relative path when metadataBase is set
+        url: "/og-image.png", 
         width: 1200,
         height: 630,
         alt: "Full-Stack Authentication Template Architecture Overview",
-        type: "image/png"
       }
     ]
   },
@@ -46,23 +45,16 @@ export const metadata: Metadata = {
     description: "Complete authentication system with Next.js 15, Express & MongoDB. Features JWT, OAuth, email verification, OTP & admin dashboard.",
     images: [
       {
-        url: "/og-image.png", // Use relative path
+        url: "/og-image.png", 
         width: 1200,
         height: 630,
         alt: "Full-Stack Authentication Template"
       }
     ],
-    creator: "@sinanptm",
-    site: "@sinanptm"
   },
   robots: {
     index: true,
     follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true
-    },
   },
   verification: {
     google: "google332e521595495b52.html"
