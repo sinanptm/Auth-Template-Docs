@@ -36,7 +36,7 @@ const Header = () => {
                             className="bg-primary/10 border-primary/30 hover:bg-primary/20 transition-all duration-200"
                         >
                             <a
-                                href="https://github.com/sinanptm/fullstack-clean-auth-template"
+                                href="https://github.com/sinanptm/clean-auth-template"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2"
@@ -53,7 +53,7 @@ const Header = () => {
                             variant="outline"
                         >
                             <a
-                                href="https://github.com/sinanptm/fullstack-clean-auth-template"
+                                href="https://github.com/sinanptm/clean-auth-template"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2"
@@ -106,7 +106,7 @@ const Header = () => {
                         <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                             <Code2 aria-hidden className="w-4 h-4" />
-                            <span>Open Source <Link href={'https://github.com/sinanptm/fullstack-clean-auth-template/blob/main/LICENSE'} className="text-blue-500">(MIT License)</Link></span>
+                            <span>Open Source <Link href={'https://github.com/sinanptm/clean-auth-template/blob/main/LICENSE'} className="text-blue-500">(MIT License)</Link></span>
                         </div>
                     </div>
                 </div>

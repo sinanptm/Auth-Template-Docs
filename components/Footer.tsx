@@ -11,7 +11,7 @@ import { Copy, Check } from "lucide-react";
 const Footer = () => {
     const [copied, setCopied] = useState(false);
 
-    const setupCode = `git clone https://github.com/sinanptm/fullstack-clean-auth-template.git
+    const setupCode = `git clone https://github.com/sinanptm/clean-auth-template.git
 cd fullstack-clean-auth-template
 pnpm install
 pnpm run dev`;

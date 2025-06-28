@@ -13,21 +13,21 @@ export const metadataBase: Metadata = {
     "TypeScript Authentication Template",
     "Production Authentication System"
   ],
-  authors: [{ name: "Muhammed Sinan", url: "https://www.muhammedsinan.space/" }],
+  authors: [{ name: "Muhammed Sinan", url: "https://www.muhammedsinan.space" }],
   creator: "Muhammed Sinan",
   publisher: "Muhammed Sinan",
   applicationName: "Full-Stack Auth Template",
   category: "Web Development",
   classification: "Authentication System Template",
-  metadataBase: new URL("https://full-stack-clean-auth-template.vercel.app"),
+  metadataBase: new URL("https://clean-auth-template.vercel.app"),
   alternates: {
-    canonical: "https://full-stack-clean-auth-template.vercel.app",
+    canonical: "https://clean-auth-template.vercel.app",
   },
   openGraph: {
     title: "Full-Stack Auth Template | Complete Authentication System",
     description: "Production-ready authentication template with Next.js 15 & Express. Features email/password login, OAuth, OTP verification, JWT, RBAC, and clean architecture.",
     type: "website",
-    url: "https://full-stack-clean-auth-template.vercel.app",
+    url: "https://clean-auth-template.vercel.app",
     locale: "en_US",
     siteName: "Full-Stack Auth Template",
     images: [
