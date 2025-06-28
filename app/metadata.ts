@@ -57,6 +57,6 @@ export const metadataBase: Metadata = {
     follow: true,
   },
   verification: {
-    google: "google332e521595495b52.html"
+    google: "google815b889e8dec9b27.html"
   }
 };
