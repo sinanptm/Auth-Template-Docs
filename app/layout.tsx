@@ -35,4 +35,4 @@ const RootLayout = ({ children }: WrapperProps) => {
   );
 };
 
-export default memo(RootLayout);
+export default RootLayout;
