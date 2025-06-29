@@ -1,8 +1,12 @@
 import ArchitectureClient from "@/components/ArchitectureClient";
-import { memo } from "react";
+import { memo, Suspense } from "react";
 
 const ArchitecturePage = () => {
-    return <ArchitectureClient />;
+    return (
+        <Suspense>
+            <ArchitectureClient />
+        </Suspense>
+    );
 };
 
 export default memo(ArchitecturePage);

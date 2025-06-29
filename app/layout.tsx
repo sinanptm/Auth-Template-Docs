@@ -2,7 +2,6 @@ import { mainFont } from "@/lib/fonts";
 import { WrapperProps } from "@/types";
 import "@/styles/globals.css";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { memo, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { schemas } from "./schema";
 import { metadataBase } from "./metadata";
@@ -27,7 +26,7 @@ const RootLayout = ({ children }: WrapperProps) => {
           }}
         />
         <NuqsAdapter>
-          <Suspense>{children}</Suspense>
+          {children}
           <Analytics />
         </NuqsAdapter>
       </body>
