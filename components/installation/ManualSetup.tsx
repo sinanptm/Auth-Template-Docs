@@ -12,7 +12,7 @@ import CopyButton from "./CopyButton";
 
 
 const manualCommands = {
-    clone: "git clone https://github.com/sinanptm/clean-auth-template.git \ncd fullstack-clean-auth-template",
+    clone: "git clone https://github.com/sinanptm/clean-auth-template.git \ncd clean-auth-template",
     install: "pnpm install",
     dev: "pnpm dev",
 };

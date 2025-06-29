@@ -12,7 +12,7 @@ const Footer = () => {
     const [copied, setCopied] = useState(false);
 
     const setupCode = `git clone https://github.com/sinanptm/clean-auth-template.git
-cd fullstack-clean-auth-template
+cd clean-auth-template
 pnpm install
 pnpm run dev`;
 
