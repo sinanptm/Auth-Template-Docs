@@ -11,10 +11,12 @@ import { Copy, Check } from "lucide-react";
 const Footer = () => {
     const [copied, setCopied] = useState(false);
 
-    const setupCode = `git clone https://github.com/sinanptm/clean-auth-template.git
-cd clean-auth-template
-pnpm install
-pnpm run dev`;
+    const setupCode = `npm i -g clean-auth
+clean-auth init my-app -i
+cd my-app
+clean-auth auth-config 
+# add firebase creds to server/.env
+pnpm dev`;
 
     const handleCopy = () => {
         navigator.clipboard.writeText(setupCode).then(() => {
