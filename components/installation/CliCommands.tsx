@@ -17,10 +17,10 @@ const cliCommandsData = [
         example: "clean-auth init my-auth-project --install",
     },
     {
-        command: "auth-config",
+        command: "config",
         description: "Configure environment variables interactively",
-        syntax: "clean-auth auth-config [--skip]",
-        example: "clean-auth auth-config",
+        syntax: "clean-auth config [--skip]",
+        example: "clean-auth config",
     },
     {
         command: "clean",

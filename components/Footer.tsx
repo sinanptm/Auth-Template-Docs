@@ -14,7 +14,7 @@ const Footer = () => {
     const setupCode = `npm i -g clean-auth
 clean-auth init my-app -i
 cd my-app
-clean-auth auth-config 
+clean-auth config
 # add firebase creds to server/.env
 pnpm dev`;
 

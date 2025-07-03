@@ -14,7 +14,7 @@ const cliCommands = {
     install: "npm install -g clean-auth",
     npxInit: "npx clean-auth init my-auth-project --install",
     init: "clean-auth init my-auth-project --install",
-    config: "clean-auth auth-config",
+    config: "clean-auth config",
     dev: "pnpm dev",
 };
 
