@@ -10,7 +10,8 @@ export const schemas = {
             "name": "Muhammed Sinan",
             "url": "https://www.muhammedsinan.space/"
         },
-        "inLanguage": "en-US"
+        "inLanguage": "en-US",
+        "mainEntityOfPage": "https://clean-auth-template.vercel.app"
     },
     webApplication: {
         "@type": "WebApplication",
@@ -32,8 +33,12 @@ export const schemas = {
             "name": "Muhammed Sinan",
             "url": "https://www.muhammedsinan.space/"
         },
-        "sameAs": ["https://github.com/sinanptm/clean-auth-template"],
-        "inLanguage": "en-US"
+        "sameAs": [
+            "https://github.com/sinanptm/clean-auth-template",
+            "https://www.muhammedsinan.space/"
+        ],
+        "inLanguage": "en-US",
+        "license": "https://github.com/sinanptm/clean-auth-template/blob/main/LICENSE"
     },
     softwareSourceCode: {
         "@type": "SoftwareSourceCode",
@@ -53,7 +58,10 @@ export const schemas = {
             "name": "Developer Community",
             "description": "Inspired by developer community best practices"
         },
-        "sameAs": ["https://clean-auth-template.vercel.app"],
+        "sameAs": [
+            "https://clean-auth-template.vercel.app",
+            "https://github.com/sinanptm/clean-auth-template"
+        ],
         "inLanguage": "en-US"
     }
 };

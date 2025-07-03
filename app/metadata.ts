@@ -11,7 +11,14 @@ export const metadataBase: Metadata = {
     "Express.js Authentication Template",
     "Clean Architecture Authentication Template",
     "TypeScript Authentication Template",
-    "Production Authentication System"
+    "Production Authentication System",
+    "Auth Starter Kit",
+    "Authentication Starter Kit",
+    "Full-Stack Authentication Starter Kit",
+    "Starter Kit for Auth Systems",
+    "JWT Authentication Starter Kit",
+    "Next.js Authentication Starter Kit",
+    "Express Authentication Starter Kit"
   ],
   authors: [{ name: "Muhammed Sinan", url: "https://www.muhammedsinan.space" }],
   creator: "Muhammed Sinan",
